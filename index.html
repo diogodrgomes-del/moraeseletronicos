@@ -4,779 +4,206 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Moraes Celulares &amp; Eletrônicos</title>
-<meta name="description" content="Referência em iPhone em Londrina. Produtos originais, até 18x no cartão e envio para todo o Brasil.">
-<meta name="theme-color" content="#0A0A0C">
+<meta name="description" content="Referência em iPhone e muito mais. Produtos originais, até 12x no cartão e envio para todo o Brasil.">
+<meta name="theme-color" content="#000000">
 <meta property="og:title" content="Moraes Celulares &amp; Eletrônicos">
-<meta property="og:description" content="Referência em iPhone em Londrina. Fale com a gente no WhatsApp.">
+<meta property="og:description" content="Referência em iPhone e muito mais. Fale com a gente no WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap">
 <style>
 /* ============================================================
    MORAES — link na bio
-   Vidro fosco sobre preto, com o ouro da marca como único acento.
-   Feito para celular: marca, chamada, produto, garantias e os dois
-   WhatsApps cabem na primeira tela.
 
-   FOTOS: cada <figure data-foto> tenta carregar um arquivo de
-   assets/. Enquanto o arquivo não existir, entra o desenho em CSS
-   que está logo abaixo do <img>. Basta soltar os arquivos na pasta.
+   A arte não é redesenhada: ela É a página. O arquivo de imagem
+   aparece inteiro na tela e, por cima dele, ficam áreas clicáveis
+   invisíveis alinhadas com os botões desenhados na arte.
+
+   As posições estão em porcentagem, então continuam certas em
+   qualquer tamanho de tela — a arte encolhe, as áreas encolhem junto.
    ============================================================ */
-:root{
-  --ink:       #0A0A0C;
-  --ink-2:     #101015;
-  --raise:     #16161C;
-
-  --glass:     rgba(255,255,255,.055);
-  --glass-hi:  rgba(255,255,255,.085);
-  --stroke:    rgba(255,255,255,.1);
-
-  --gold:      #F0A818;
-  --gold-soft: #FFCE6B;
-  --gold-deep: #8A5D0B;
-
-  --text:      #FAF8F5;
-  --dim:       #8C867E;
-  --dim-2:     #5F5A54;
-
-  --wa:        #25D366;
-  --droid:     #3DDC84;
-
-  --display: "Archivo", system-ui, sans-serif;
-  --ui: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-
 *{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
+
 html{ -webkit-text-size-adjust: 100%; }
 
 body{
   margin: 0;
-  background: var(--ink);
-  color: var(--text);
-  font-family: var(--ui);
-  font-size: 15px;
-  line-height: 1.45;
-  -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: transparent;
-  overflow-x: hidden;
-}
-
-/* luz de fundo */
-body::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(112% 46% at 50% -6%, rgba(240,168,24,.17) 0%, rgba(240,168,24,0) 62%),
-    radial-gradient(70% 38% at 92% 46%, rgba(120,140,190,.08) 0%, rgba(120,140,190,0) 70%),
-    linear-gradient(180deg, #111016 0%, var(--ink) 38%, #060608 100%);
-}
-
-/* grão — tira o aspecto de degradê chapado */
-body::after{
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: .04;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.wrap{
-  width: 100%;
-  max-width: 424px;
-  margin-inline: auto;
-  padding-inline: 16px;
-  padding-block: 14px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-}
-
-ul{ list-style: none; margin: 0; padding: 0; }
-a{ touch-action: manipulation; }
-figure{ margin: 0; }
-
-/* ------------------------------------------------------------
-   Contorno em degradê — máscara, não borda falsa
-   ------------------------------------------------------------ */
-.stroked{ position: relative; }
-.stroked::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(158deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.04) 34%, rgba(240,168,24,.26) 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* ============================================================
-   1. Cartão de abertura
-   ============================================================ */
-.hero{
-  border-radius: 26px;
-  overflow: hidden;
-  background: linear-gradient(180deg, var(--raise) 0%, var(--ink-2) 58%, #0C0C10 100%);
-  box-shadow: 0 24px 50px -28px rgba(0,0,0,.95);
-}
-
-.hero-bar{
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  padding: 12px 16px 10px;
-  border-bottom: 1px solid rgba(255,255,255,.055);
-}
-
-.hero-bar svg{ width: 30px; height: auto; flex: none; }
-
-.hero-bar b{
-  font-family: var(--display);
-  font-variation-settings: "wdth" 108;
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: .2em;
-  padding-left: .2em;
-  color: #EDEBE8;
-}
-
-.hero-bar small{
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 7px;
-  letter-spacing: .19em;
-  text-transform: uppercase;
-  color: var(--dim-2);
-  border-left: 1px solid rgba(255,255,255,.1);
-  padding-inline-start: 9px;
-  margin-inline-start: 1px;
-  line-height: 1.3;
-  max-width: 8.4em;
-}
-
-/* área da foto */
-.hero-foto{
-  position: relative;
-  z-index: 0;                 /* prende o z-index dos aparelhos aqui dentro */
-  aspect-ratio: 16 / 10.6;
   overflow: hidden;
-  background:
-    radial-gradient(76% 82% at 50% 96%, rgba(240,168,24,.13) 0%, rgba(240,168,24,0) 68%),
-    linear-gradient(180deg, #17171D 0%, #0F0F14 100%);
+  -webkit-tap-highlight-color: transparent;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-.hero-foto img{
+/* preenche as bordas com a própria arte desfocada, em vez de preto chapado */
+.fundo{
+  position: fixed;
+  inset: -6%;
+  z-index: 0;
+  background-position: center;
+  background-size: cover;
+  filter: blur(34px) brightness(.34) saturate(115%);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.fundo.on{ opacity: 1; }
+
+/* ------------------------------------------------------------
+   A arte. A caixa tem a proporção exata do arquivo, e as áreas
+   clicáveis são posicionadas em % dentro dela — por isso elas
+   nunca saem do lugar.
+   ------------------------------------------------------------ */
+.arte{
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 941 / 1672;
+  width: min(100vw, calc(100dvh * 941 / 1672));
+  max-height: 100dvh;
+}
+
+.arte > img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
-/* texto da chamada */
-.hero-txt{
-  padding: 12px 18px 18px;
-  text-align: center;
-  background: linear-gradient(180deg, rgba(10,10,12,.34) 0%, rgba(10,10,12,.78) 34%, var(--ink-2) 100%);
-  margin-top: -22px;
-  position: relative;
-  z-index: 1;
-}
-
-.eyebrow{
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 9.5px;
-  letter-spacing: .4em;
-  padding-left: .4em;
-  text-transform: uppercase;
-  color: var(--dim);
-}
-
-.hero-txt h1{
-  margin: 3px 0 0;
-  font-family: var(--display);
-  font-variation-settings: "wdth" 118;
-  font-weight: 900;
-  font-size: clamp(44px, 14.5vw, 60px);
-  line-height: .9;
-  letter-spacing: -.005em;
-  color: #FFFDFA;
-  text-transform: uppercase;
-}
-
-.cidade{
-  margin: 7px 0 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 11.5px;
-  letter-spacing: .24em;
-  padding: 5px 13px 5px 15px;
-  border-radius: 99px;
-  text-transform: uppercase;
-  color: var(--gold-soft);
-  background: rgba(240,168,24,.1);
-  box-shadow: 0 0 0 1px rgba(240,168,24,.22) inset;
-}
-.cidade svg{ width: 12px; height: 12px; flex: none; margin-left: -2px; }
-
-/* ============================================================
-   2. Garantias
-   ============================================================ */
-.trust{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-radius: 17px;
-  padding: 11px 4px;
-  background: var(--glass);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-}
-
-.trust li{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  text-align: center;
-  padding-inline: 2px;
-}
-.trust li + li{ box-shadow: -1px 0 0 rgba(255,255,255,.055); }
-
-.trust svg{ width: 19px; height: 19px; color: var(--gold); flex: none; }
-
-.trust span{
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 8px;
-  line-height: 1.3;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  color: #CFC9C1;
-  overflow-wrap: anywhere;
-}
-
-/* ============================================================
-   3. Ações
-   ============================================================ */
-.links{ display: flex; flex-direction: column; gap: 9px; }
-
-.link{
-  display: grid;
-  grid-template-columns: 38px 1fr auto;
-  align-items: center;
-  gap: 13px;
-  min-height: 62px;
-  padding: 11px 13px;
-  border-radius: 19px;
-  background: var(--glass);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  text-decoration: none;
-  color: inherit;
-  transition: transform .16s ease, background .16s ease;
-}
-
-.link--wa{
-  background:
-    linear-gradient(104deg, rgba(240,168,24,.11) 0%, rgba(240,168,24,.02) 46%, rgba(255,255,255,.05) 100%);
+/* ------------------------------------------------------------
+   Áreas clicáveis — invisíveis em repouso, para não mudar a arte.
+   Só acendem de leve quando o dedo encosta ou o teclado foca.
+   ------------------------------------------------------------ */
+.toque{
+  position: absolute;
+  display: block;
+  border-radius: 3.6%/22%;
+  background: transparent;
+  transition: background .14s ease, transform .14s ease;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
 }
 
 @media (hover: hover){
-  .link:hover{ transform: translateY(-2px); background: var(--glass-hi); }
-}
-.link:active{ transform: scale(.985); }
-.link:focus-visible{ outline: 2px solid var(--gold-soft); outline-offset: 3px; }
-
-.link-mark{ width: 38px; height: 38px; display: grid; place-items: center; }
-.link-mark svg{ width: 100%; height: 100%; }
-
-.link-body{ min-width: 0; }
-
-.link-kicker{
-  display: block;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 9px;
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: var(--dim);
+  .toque:hover{ background: rgba(255,255,255,.07); }
 }
 
-.link-title{
-  display: block;
-  margin-top: 2px;
-  font-family: var(--display);
-  font-variation-settings: "wdth" 104;
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 1.15;
-  letter-spacing: -.005em;
-  color: #FFFDFA;
+.toque:active{ background: rgba(255,255,255,.11); transform: scale(.985); }
+
+.toque:focus-visible{
+  outline: 3px solid #F2A81C;
+  outline-offset: 2px;
+  background: rgba(242,168,28,.12);
 }
 
-.link-note{
-  display: block;
-  margin-top: 2px;
-  font-size: 11px;
-  color: var(--dim-2);
-}
+/* posições medidas sobre a arte, em % da largura e da altura */
+.t-iphone  { left: 17.6%; top: 39.7%; width: 65.3%; height: 9.6%; }
+.t-android { left: 17.6%; top: 50.4%; width: 65.3%; height: 9.6%; }
+.t-endereco{ left: 17.6%; top: 61.1%; width: 65.3%; height: 8.8%; }
+.t-instagram{ left: 29.4%; top: 82.8%; width: 41.9%; height: 6.4%; border-radius: 5%/30%; }
 
-.link-end{ display: flex; align-items: center; gap: 6px; color: var(--dim-2); }
-.link-end .wa{ width: 25px; height: 25px; color: var(--wa); }
-.link-end .chev{ width: 15px; height: 15px; }
-
-/* endereço e instagram dividem a linha */
-.dupla{ display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-
-.mini{
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  min-height: 78px;
-  padding: 12px 13px;
-  border-radius: 17px;
-  background: var(--glass);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  text-decoration: none;
-  color: inherit;
-  transition: transform .16s ease, background .16s ease;
-}
-@media (hover: hover){ .mini:hover{ transform: translateY(-2px); background: var(--glass-hi); } }
-.mini:active{ transform: scale(.985); }
-.mini:focus-visible{ outline: 2px solid var(--gold-soft); outline-offset: 3px; }
-
-.mini-top{ display: flex; align-items: center; justify-content: space-between; color: var(--dim-2); }
-.mini-top .ico{ width: 21px; height: 21px; }
-.mini-top .chev{ width: 14px; height: 14px; }
-
-.mini b{
-  font-family: var(--display);
-  font-variation-settings: "wdth" 104;
-  font-weight: 800;
-  font-size: 13.5px;
-  line-height: 1.15;
-  color: #FFFDFA;
-}
-.mini span{ display: block; margin-top: 2px; font-size: 10.5px; color: var(--dim-2); }
-
-/* ============================================================
-   4. Vitrine
-   ============================================================ */
-.vitrine-tit{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 3px 0 -3px;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 9px;
-  letter-spacing: .3em;
-  padding-left: .3em;
-  text-transform: uppercase;
-  color: var(--dim-2);
-}
-.vitrine-tit::after{
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,.1), transparent);
-}
-
-.vitrine{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
-
-.vit{
-  position: relative;
-  aspect-ratio: 1;
-  border-radius: 15px;
-  overflow: hidden;
-  background: linear-gradient(168deg, #17171D 0%, #0E0E13 100%);
-}
-.vit img{ width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.vit figcaption{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  padding: 14px 8px 7px;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 8px;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  text-align: center;
-  color: #D8D2CA;
-  background: linear-gradient(180deg, rgba(10,10,12,0), rgba(10,10,12,.88) 62%);
-}
-
-/* ============================================================
-   5. Aparelho desenhado — reserva enquanto não há foto
-   ============================================================ */
-.draw{
+/* ------------------------------------------------------------
+   Aviso que só aparece enquanto o arquivo da arte não existe.
+   Some sozinho assim que a imagem for colocada em assets/.
+   ------------------------------------------------------------ */
+.falta{
   position: absolute;
   inset: 0;
+  z-index: 2;
   display: none;
-  align-items: flex-end;
-  justify-content: center;
-}
-figure.sem-foto img{ display: none; }
-figure.sem-foto .draw{ display: flex; }
-
-.dev{
-  position: relative;
-  aspect-ratio: 9 / 19.2;
-  border-radius: 15%/7%;
-  flex: none;
-  box-shadow:
-    0 0 0 1.4px rgba(255,255,255,.15) inset,
-    0 16px 28px -16px rgba(0,0,0,.92);
-}
-
-.dev::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(118deg, rgba(255,255,255,.17) 0%, rgba(255,255,255,0) 32%, rgba(255,255,255,0) 72%, rgba(255,255,255,.07) 100%);
-}
-
-.c-azul   { background: linear-gradient(142deg, #46557C 0%, #253052 26%, #18203A 58%, #10162A 100%); }
-.c-laranja{ background: linear-gradient(142deg, #FFA64F 0%, #E9762B 26%, #C4551A 58%, #9B3F12 100%); }
-.c-titanio{ background: linear-gradient(142deg, #E4E6E8 0%, #BFC2C5 26%, #9DA0A4 58%, #83868A 100%); }
-.c-roxo   { background: linear-gradient(142deg, #7C4062 0%, #552744 26%, #391830 58%, #240F1F 100%); }
-.c-branco { background: linear-gradient(142deg, #FDFDFD 0%, #E7E8EA 26%, #CFD1D4 58%, #B3B6BA 100%); }
-
-/* trio do cartão de abertura */
-.draw--trio{ padding-bottom: 0; gap: 0; }
-.draw--trio .dev{ margin-bottom: -14%; }
-.draw--trio .d1{ width: 20%; margin-right: -4.5%; z-index: 1; }
-.draw--trio .d2{ width: 22%; margin-right: -4.5%; z-index: 2; }
-.draw--trio .d3{ width: 25%; z-index: 3; }
-
-/* unidade nas caixas da vitrine */
-.draw--uni{ align-items: center; }
-.draw--uni .dev{ width: 42%; }
-
-/* câmera */
-.cam{
-  position: absolute;
-  top: 3.6%; left: 5%; right: 5%;
-  height: 16.5%;
-  border-radius: 11% / 26%;
-  background: rgba(255,255,255,.1);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.18) inset;
-}
-.cam i, .cam b{ position: absolute; border-radius: 50%; aspect-ratio: 1; }
-.cam i{
-  background: radial-gradient(60% 60% at 38% 32%, #4C5058 0%, #101216 62%, #04050A 100%);
-  box-shadow: 0 0 0 1.5px rgba(255,255,255,.28);
-}
-.cam i:nth-child(1){ height: 42%; left: 4%;    top: 6%; }
-.cam i:nth-child(2){ height: 42%; left: 4%;    top: 52%; }
-.cam i:nth-child(3){ height: 42%; left: 21.5%; top: 29%; }
-.cam b:nth-of-type(1){ height: 30%; right: 7%; top: 14%;
-  background: radial-gradient(50% 50% at 50% 42%, #FFFDF2 0%, #D9D2BC 60%, #8E8874 100%);
-  box-shadow: 0 0 0 1.3px rgba(255,255,255,.24); }
-.cam b:nth-of-type(2){ height: 16%; right: 9.5%; top: 58%;
-  background: #1C1E23; box-shadow: 0 0 0 1.1px rgba(255,255,255,.15); }
-
-.maca{
-  position: absolute;
-  top: 46%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 26%;
-  color: rgba(255,255,255,.44);
-}
-.maca svg{ width: 100%; height: auto; display: block; }
-.c-titanio .maca, .c-branco .maca{ color: rgba(255,255,255,.62); }
-
-/* ============================================================
-   6. Marcas e rodapé
-   ============================================================ */
-.marcas{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 14px;
-  padding: 10px 12px;
-  border-radius: 15px;
-  background: var(--glass);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-}
-.marcas li{
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 11.5px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: #D6D8DE;
-}
-.marcas svg{ width: 15px; height: 15px; flex: none; }
-.marcas li.selo{
-  font-size: 8px;
-  letter-spacing: .13em;
-  color: var(--gold-soft);
-  padding-left: 14px;
-  border-left: 1px solid rgba(255,255,255,.1);
-}
-
-.foot{
-  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  justify-content: center;
+  gap: 14px;
+  padding: 28px 24px;
   text-align: center;
-  font-size: 10.5px;
-  color: var(--dim-2);
+  background: #0A0A0C;
+  color: #EDEBE8;
 }
-.foot strong{
-  font-family: var(--display);
+body.sem-arte .falta{ display: flex; }
+body.sem-arte .arte > img{ display: none; }
+
+.falta h1{
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #F2A81C;
+}
+.falta p{ margin: 0; font-size: 13px; line-height: 1.5; color: #A0978D; max-width: 30ch; }
+.falta code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: rgba(242,168,28,.12);
+  color: #FFD470;
+}
+.falta ol{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #8C867E;
+  text-align: left;
+  max-width: 32ch;
+}
+.falta ol li{ padding-left: 20px; position: relative; }
+.falta ol li::before{
+  content: counter(passo);
+  counter-increment: passo;
+  position: absolute;
+  left: 0;
   font-weight: 700;
-  font-size: 8.5px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--dim);
+  color: #F2A81C;
 }
+.falta ol{ counter-reset: passo; }
 
 @media (prefers-reduced-motion: reduce){
-  *, *::before, *::after{ transition-duration: .001ms !important; }
+  *{ transition-duration: .001ms !important; }
 }
 </style>
 </head>
 <body>
 
-<main class="wrap">
+<div class="fundo" id="fundo" aria-hidden="true"></div>
 
-  <!-- ===== 1. abertura ===== -->
-  <section class="hero stroked">
-    <div class="hero-bar">
-      <svg viewBox="0 0 124 86" role="img" aria-label="Monograma Moraes">
-        <defs>
-          <linearGradient id="mg-s" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#C6C9D1"/><stop offset="1" stop-color="#6E7179"/>
-          </linearGradient>
-          <linearGradient id="mg-g" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#FFE08A"/><stop offset=".5" stop-color="#F0A818"/><stop offset="1" stop-color="#8A5D0B"/>
-          </linearGradient>
-        </defs>
-        <path d="M8 80 V10 L62 64 L116 10 V80" fill="none" stroke="url(#mg-s)" stroke-width="11" stroke-linejoin="miter" stroke-miterlimit="6"/>
-        <path d="M32 80 V28 L62 58 L92 28 V80" fill="none" stroke="url(#mg-g)" stroke-width="11" stroke-linejoin="miter" stroke-miterlimit="6"/>
-      </svg>
-      <b>MORAES</b>
-      <small>Celulares &amp; Eletrônicos</small>
-    </div>
+<div class="arte">
 
-    <figure class="hero-foto" data-foto>
-      <img src="assets/hero.jpg" alt="iPhones disponíveis na Moraes Celulares" fetchpriority="high" decoding="async">
-      <div class="draw draw--trio" aria-hidden="true">
-        <div class="dev c-azul d1">
-          <div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
-          <div class="maca"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/><path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/></svg></div>
-        </div>
-        <div class="dev c-laranja d2">
-          <div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
-          <div class="maca"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/><path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/></svg></div>
-        </div>
-        <div class="dev c-titanio d3">
-          <div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
-          <div class="maca"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/><path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/></svg></div>
-        </div>
-      </div>
-    </figure>
+  <img id="arte"
+       src="assets/arte.jpg"
+       alt="Moraes Celulares e Eletrônicos — Referência em iPhone e muito mais. Produtos originais, até 12x no cartão, envio para todo o Brasil e atendimento especializado.">
 
-    <div class="hero-txt">
-      <p class="eyebrow">Referência em</p>
-      <h1>iPhone</h1>
-      <p class="cidade">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 21.5s7-6 7-11.3a7 7 0 1 0-14 0C5 15.5 12 21.5 12 21.5Z"/><circle cx="12" cy="10" r="2.4"/>
-        </svg>
-        em Londrina
-      </p>
-    </div>
-  </section>
+  <!-- áreas clicáveis sobre os botões da arte -->
+  <a class="toque t-iphone"    id="lk-iphone"    href="#" target="_blank" rel="noopener"
+     aria-label="WhatsApp — venda de iPhone"></a>
 
-  <!-- ===== 2. garantias ===== -->
-  <ul class="trust stroked">
-    <li>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 2.7 5 5.4v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.4L12 2.7Z"/><path d="m9 11.7 2.1 2.1 4-4.2"/>
-      </svg>
-      <span>Produtos<br>originais</span>
-    </li>
-    <li>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2.6" y="5.2" width="18.8" height="13.6" rx="2.4"/><path d="M2.6 9.8h18.8"/><path d="M6 14.6h3.4"/>
-      </svg>
-      <span>Até 18x<br>no cartão</span>
-    </li>
-    <li>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M2.6 6.6h10.2v9.8H2.6z"/><path d="M12.8 10.2h3.6l3 3.1v3.1h-6.6z"/><circle cx="7" cy="18.4" r="1.9"/><circle cx="16.8" cy="18.4" r="1.9"/>
-      </svg>
-      <span>Envio para<br>todo Brasil</span>
-    </li>
-    <li>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M4.2 14.4v-2.2a7.8 7.8 0 0 1 15.6 0v2.2"/>
-        <path d="M4.2 13.4h1.6a1.4 1.4 0 0 1 1.4 1.4v2.6a1.4 1.4 0 0 1-1.4 1.4H4.2Z"/>
-        <path d="M19.8 13.4h-1.6a1.4 1.4 0 0 0-1.4 1.4v2.6a1.4 1.4 0 0 0 1.4 1.4h1.6Z"/>
-      </svg>
-      <span>Atendimento<br>especializado</span>
-    </li>
-  </ul>
+  <a class="toque t-android"   id="lk-android"   href="#" target="_blank" rel="noopener"
+     aria-label="WhatsApp — venda de Android"></a>
 
-  <!-- ===== 3. ações ===== -->
-  <nav class="links" aria-label="Canais de contato">
+  <a class="toque t-endereco"  id="lk-maps"      href="#" target="_blank" rel="noopener"
+     aria-label="Nosso endereço — abrir no mapa"></a>
 
-    <a class="link link--wa stroked" id="lk-iphone" href="#" target="_blank" rel="noopener">
-      <span class="link-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="#F2F1EE">
-          <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
-          <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
-        </svg>
-      </span>
-      <span class="link-body">
-        <span class="link-kicker">WhatsApp</span>
-        <span class="link-title">Venda de iPhone</span>
-        <span class="link-note">Tire suas dúvidas agora</span>
-      </span>
-      <span class="link-end" aria-hidden="true">
-        <svg class="wa" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.89 2.38 1.01 2.54c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/>
-        </svg>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-      </span>
-    </a>
+  <a class="toque t-instagram" id="lk-ig"        href="#" target="_blank" rel="noopener"
+     aria-label="Instagram da Moraes Celulares e Eletrônicos"></a>
 
-    <a class="link link--wa stroked" id="lk-android" href="#" target="_blank" rel="noopener">
-      <span class="link-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="var(--droid)">
-          <path d="M6.2 10.6h11.6v6.3c0 .75-.6 1.35-1.35 1.35H7.55c-.75 0-1.35-.6-1.35-1.35v-6.3Z"/>
-          <path d="M6.2 9.5a5.8 5.8 0 0 1 11.6 0H6.2Z"/>
-          <circle cx="9.5" cy="7" r=".82" fill="#0A0A0C"/><circle cx="14.5" cy="7" r=".82" fill="#0A0A0C"/>
-          <path d="M7.5 3.1 8.7 5" stroke="var(--droid)" stroke-width="1.15" stroke-linecap="round"/>
-          <path d="M16.5 3.1 15.3 5" stroke="var(--droid)" stroke-width="1.15" stroke-linecap="round"/>
-          <rect x="2.9" y="10.7" width="2.3" height="6.1" rx="1.15"/><rect x="18.8" y="10.7" width="2.3" height="6.1" rx="1.15"/>
-          <rect x="8.5" y="18.3" width="2.2" height="4.2" rx="1.1"/><rect x="13.3" y="18.3" width="2.2" height="4.2" rx="1.1"/>
-        </svg>
-      </span>
-      <span class="link-body">
-        <span class="link-kicker">WhatsApp</span>
-        <span class="link-title">Venda de Android</span>
-        <span class="link-note">Fale com nossa equipe</span>
-      </span>
-      <span class="link-end" aria-hidden="true">
-        <svg class="wa" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.89 2.38 1.01 2.54c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/>
-        </svg>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
-      </span>
-    </a>
-
-    <div class="dupla">
-      <a class="mini stroked" id="lk-maps" href="#" target="_blank" rel="noopener">
-        <span class="mini-top">
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 21.5s7-6 7-11.3a7 7 0 1 0-14 0C5 15.5 12 21.5 12 21.5Z"/><circle cx="12" cy="10" r="2.6"/>
-          </svg>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
-        </span>
-        <span><b>Nosso endereço</b><span>Venha nos visitar</span></span>
-      </a>
-
-      <a class="mini stroked" id="lk-ig" href="#" target="_blank" rel="noopener">
-        <span class="mini-top">
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#E9E4DC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/>
-            <circle cx="16.9" cy="7.1" r="1.05" fill="currentColor" stroke="none"/>
-          </svg>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
-        </span>
-        <span><b>Instagram</b><span id="ig-handle">@moraeseletronicos</span></span>
-      </a>
-    </div>
-
-  </nav>
-
-  <!-- ===== 4. vitrine ===== -->
-  <p class="vitrine-tit">Na loja</p>
-  <div class="vitrine">
-    <figure class="vit" data-foto>
-      <img src="assets/produto-1.jpg" alt="iPhone Pro" decoding="async" loading="lazy">
-      <div class="draw draw--uni" aria-hidden="true">
-        <div class="dev c-roxo"><div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
-          <div class="maca"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/><path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/></svg></div>
-        </div>
-      </div>
-      <figcaption>iPhone Pro</figcaption>
-    </figure>
-
-    <figure class="vit" data-foto>
-      <img src="assets/produto-2.jpg" alt="iPhone Fold" decoding="async" loading="lazy">
-      <div class="draw draw--uni" aria-hidden="true">
-        <div class="dev c-titanio"><div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
-          <div class="maca"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/><path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/></svg></div>
-        </div>
-      </div>
-      <figcaption>iPhone</figcaption>
-    </figure>
-
-    <figure class="vit" data-foto>
-      <img src="assets/produto-3.jpg" alt="Xiaomi" decoding="async" loading="lazy">
-      <div class="draw draw--uni" aria-hidden="true">
-        <div class="dev c-branco"><div class="cam"><i></i><i></i><i></i><b></b><b></b></div></div>
-      </div>
-      <figcaption>Xiaomi</figcaption>
-    </figure>
+  <!-- visível só enquanto falta o arquivo da arte -->
+  <div class="falta">
+    <h1>Falta a arte</h1>
+    <p>A página está pronta e os botões já estão no lugar. Só falta a imagem.</p>
+    <ol>
+      <li>Salve a arte como <code>arte.jpg</code></li>
+      <li>Coloque na pasta <code>assets/</code> do repositório</li>
+      <li>Recarregue — os botões já ficam clicáveis por cima dela</li>
+    </ol>
   </div>
 
-  <!-- ===== 5. marcas ===== -->
-  <ul class="marcas stroked" aria-label="Marcas que trabalhamos">
-    <li>
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
-        <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
-      </svg>
-      iPhone
-    </li>
-    <li>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
-        <text x="12" y="15.8" text-anchor="middle" fill="currentColor" font-family="Archivo, system-ui, sans-serif" font-weight="800" font-size="8.4" letter-spacing=".4">MI</text>
-      </svg>
-      Xiaomi
-    </li>
-    <li class="selo">Lacrados<br>com garantia</li>
-  </ul>
-
-  <!-- ===== 6. rodapé ===== -->
-  <footer class="foot">
-    <strong>Moraes Celulares &amp; Eletrônicos</strong>
-    <span id="ft-endereco">Rua Exemplo, 123 &middot; Centro &middot; Londrina/PR</span>
-    <span id="ft-horario">Seg a Sex 9h–18h &middot; Sáb 9h–13h</span>
-    <span>&copy; <span id="ft-ano">2026</span> — Todos os direitos reservados</span>
-  </footer>
-
-</main>
+</div>
 
 <script>
 /* ============================================================
@@ -789,46 +216,46 @@ const MORAES = {
   msgIphone:       "Olá! Vim pelo link da bio e quero saber sobre iPhone.",
   msgAndroid:      "Olá! Vim pelo link da bio e quero saber sobre Android.",
   instagram:       "moraeseletronicos",
-  mapsUrl:         "https://www.google.com/maps/search/?api=1&query=Moraes+Celulares+e+Eletronicos+Londrina",
-  endereco:        "Rua Exemplo, 123 · Centro · Londrina/PR",
-  horario:         "Seg a Sex 9h–18h · Sáb 9h–13h"
+  mapsUrl:         "https://www.google.com/maps/search/?api=1&query=Moraes+Celulares+e+Eletronicos"
 };
 
 /* ---------- daqui para baixo não precisa mexer ---------- */
-(function aplicar(){
+(function ligarBotoes(){
   const wa = (fone, msg) => "https://wa.me/" + fone + "?text=" + encodeURIComponent(msg);
-
-  const link = (id, href) => {
+  const set = (id, href) => {
     const el = document.getElementById(id);
     if (el) el.href = href;
   };
-
-  link("lk-iphone",  wa(MORAES.whatsappIphone,  MORAES.msgIphone));
-  link("lk-android", wa(MORAES.whatsappAndroid, MORAES.msgAndroid));
-  link("lk-maps",    MORAES.mapsUrl);
-  link("lk-ig",      "https://instagram.com/" + MORAES.instagram);
-
-  const texto = (id, valor) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = valor;
-  };
-
-  texto("ig-handle",   "@" + MORAES.instagram);
-  texto("ft-endereco", MORAES.endereco);
-  texto("ft-horario",  MORAES.horario);
-  texto("ft-ano",      String(new Date().getFullYear()));
+  set("lk-iphone",  wa(MORAES.whatsappIphone,  MORAES.msgIphone));
+  set("lk-android", wa(MORAES.whatsappAndroid, MORAES.msgAndroid));
+  set("lk-maps",    MORAES.mapsUrl);
+  set("lk-ig",      "https://instagram.com/" + MORAES.instagram);
 })();
 
-/* Foto que não existe em assets/ cai para o aparelho desenhado.
-   Assim que o arquivo for colocado na pasta, a foto aparece sozinha. */
-(function fotos(){
-  document.querySelectorAll("figure[data-foto]").forEach(function(fig){
-    const img = fig.querySelector("img");
-    if (!img) return;
-    const semFoto = () => fig.classList.add("sem-foto");
-    if (img.complete && img.naturalWidth === 0) semFoto();
-    img.addEventListener("error", semFoto);
-  });
+/* Procura a arte em jpg, depois png, depois webp. Achando, usa a mesma
+   imagem desfocada para preencher as bordas da tela. */
+(function carregarArte(){
+  const img = document.getElementById("arte");
+  const fundo = document.getElementById("fundo");
+  const tentativas = ["assets/arte.jpg", "assets/arte.png", "assets/arte.webp"];
+  let i = 0;
+
+  function ok(){
+    document.body.classList.remove("sem-arte");
+    fundo.style.backgroundImage = 'url("' + img.src + '")';
+    fundo.classList.add("on");
+  }
+
+  function proxima(){
+    i++;
+    if (i < tentativas.length) { img.src = tentativas[i]; return; }
+    document.body.classList.add("sem-arte");
+  }
+
+  img.addEventListener("load",  ok);
+  img.addEventListener("error", proxima);
+
+  if (img.complete) { img.naturalWidth > 0 ? ok() : proxima(); }
 })();
 </script>
 

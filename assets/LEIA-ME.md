@@ -1,21 +1,32 @@
-# Fotos da página
+# A arte
 
-A página procura estes arquivos. Enquanto não existirem, ela mostra um aparelho
-desenhado em CSS no lugar — nada quebra, nada aparece vazio. Assim que o arquivo
-for colocado aqui, a foto entra sozinha, sem mexer no código.
+A página usa a arte inteira como imagem, sem redesenhar nada. Por cima dela
+ficam quatro áreas clicáveis invisíveis, alinhadas com os botões.
 
-| Arquivo | Onde aparece | Formato ideal |
-|---|---|---|
-| `hero.jpg` | Cartão de abertura, acima de "iPhone" | deitada, 16:10, mín. 1200×750 |
-| `produto-1.jpg` | Vitrine "Na loja", 1ª caixa | quadrada, mín. 600×600 |
-| `produto-2.jpg` | Vitrine "Na loja", 2ª caixa | quadrada, mín. 600×600 |
-| `produto-3.jpg` | Vitrine "Na loja", 3ª caixa | quadrada, mín. 600×600 |
+## O arquivo
 
-Pode usar `.jpg`, `.png` ou `.webp` — se trocar a extensão, ajuste o `src`
-da `<img>` correspondente no `index.html`.
+Coloque a arte aqui com um destes nomes:
 
-As legendas da vitrine ("iPhone Pro", "iPhone", "Xiaomi") ficam nas tags
-`<figcaption>` do `index.html`.
+- `arte.jpg`  (procurado primeiro)
+- `arte.png`
+- `arte.webp`
 
-Dica: fundo claro e neutro funciona melhor, porque a caixa tem cantos
-arredondados e a legenda entra por cima do rodapé da imagem.
+Enquanto o arquivo não existir, a página mostra um aviso com o passo a passo,
+em vez de ficar preta.
+
+## Proporção
+
+As áreas clicáveis foram medidas sobre uma arte de **941 × 1672** (proporção
+9:16). Se a sua arte tiver outra proporção, ajuste no `index.html`:
+
+1. O `aspect-ratio` da classe `.arte`
+2. As porcentagens das classes `.t-iphone`, `.t-android`, `.t-endereco` e
+   `.t-instagram`
+
+Cada área é definida por `left`, `top`, `width` e `height` em porcentagem da
+arte — por isso continuam alinhadas em qualquer tamanho de tela.
+
+## Peso
+
+Exporte em JPG com qualidade 80 e no máximo 1200px de largura. Acima disso o
+ganho visual no celular é nulo e a página só demora mais para abrir.
