@@ -40,10 +40,24 @@ python3 -m http.server 8000
 Por ser um arquivo estático, sobe direto em Netlify, Vercel, GitHub Pages ou
 qualquer hospedagem. Não há passo de build.
 
+## O iPhone da abertura
+
+O aparelho no topo é feito só com HTML e CSS — nenhuma imagem é carregada.
+Mora no bloco `3. O iPhone` do `<style>`:
+
+- `@keyframes flutuar` — a flutuação e a inclinação, ciclo de 7s
+- `@keyframes trocaWall` — troca dos três papéis de parede, ciclo de 14,4s
+- `@keyframes correBrilho` — o reflexo que corre pelo vidro
+- `.wall--dunas` / `.wall--roxo` / `.wall--laranja` — as três cores
+
+Para trocar um papel de parede, basta mudar o `background` da classe. Quem tiver
+`prefers-reduced-motion` ligado no aparelho vê o iPhone parado.
+
 ## Pendências
 
 - [ ] Trocar os WhatsApps de exemplo pelos números reais
 - [ ] Confirmar usuário do Instagram e link do Maps
 - [ ] Substituir o monograma SVG pelo arquivo oficial da marca
+- [ ] Avaliar trocar o iPhone em CSS por foto real de produto
 - [ ] Endereço e horário reais no rodapé
 - [ ] Favicon e imagem de compartilhamento (Open Graph)
