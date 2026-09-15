@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moraes Celulares &amp; Eletrônicos</title>
+<meta name="description" content="Referência em iPhone e muito mais. Produtos originais, até 12x no cartão e envio para todo o Brasil.">
+<meta name="theme-color" content="#07060A">
+<meta property="og:title" content="Moraes Celulares &amp; Eletrônicos">
+<meta property="og:description" content="Referência em iPhone e muito mais. Fale com a gente no WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Italianno&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* ============================================================
+   MORAES — link na bio
+   Identidade fixa (preto + ouro). Tokens abaixo controlam tudo.
+   ============================================================ */
+:root{
+  --ground:      #07060A;
+  --ground-2:    #0D0B11;
+  --surface:     #141119;
+  --surface-hi:  #1D1924;
+  --line:        #2B2633;
+  --line-gold:   rgba(242,168,28,.34);
+
+  --gold:        #F2A81C;
+  --gold-hi:     #FFD470;
+  --gold-deep:   #8F5F0C;
+
+  --text:        #F5F2EE;
+  --muted:       #A0978D;
+  --muted-dim:   #6E675F;
+
+  --wa:          #25D366;
+  --droid:       #3DDC84;
+
+  --r-lg: 20px;
+  --r-md: 14px;
+  --r-sm: 10px;
+
+  --fs-display: clamp(52px, 17vw, 74px);
+}
+
+*{ box-sizing: border-box; }
+
+html{ -webkit-text-size-adjust: 100%; }
+
+body{
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* brilho ambiente atrás de tudo */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(115% 62% at 50% -8%,  rgba(242,168,28,.20) 0%, rgba(242,168,28,0) 62%),
+    radial-gradient(85%  48% at 12% 34%,  rgba(242,168,28,.07) 0%, rgba(242,168,28,0) 70%),
+    radial-gradient(90%  55% at 92% 78%,  rgba(155,160,180,.08) 0%, rgba(155,160,180,0) 70%),
+    linear-gradient(180deg, var(--ground-2) 0%, var(--ground) 45%, #050409 100%);
+}
+
+.wrap{
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  padding-block: 34px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ---------- 1. marca ---------- */
+.brand{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.monogram{ width: 118px; height: auto; display: block; }
+
+.wordmark{
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: .14em;
+  margin: 0;
+  padding-left: .14em;
+  background: linear-gradient(180deg, #FFFFFF 0%, #DDDFE5 44%, #9DA0A9 74%, #EEF0F4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-sub{
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: .38em;
+  padding-left: .38em;
+  color: var(--muted);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.tagline{
+  font-family: "Italianno", "Brush Script MT", cursive;
+  font-size: 29px;
+  line-height: 1.15;
+  color: var(--gold-hi);
+  margin: 4px 0 0;
+  max-width: 21ch;
+  text-wrap: balance;
+}
+
+.tagline-rule{
+  width: 62px;
+  height: 2px;
+  border: 0;
+  margin: 2px 0 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ---------- 2. chamada ---------- */
+.headline{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.eyebrow{
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .44em;
+  padding-left: .44em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.headline h1{
+  position: relative;
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: var(--fs-display);
+  line-height: .92;
+  letter-spacing: .03em;
+  padding-left: .03em;
+  margin: 0;
+  color: #E6E8ED; /* fallback se background-clip falhar */
+  background: linear-gradient(176deg, #FFFFFF 0%, #E4E6EC 36%, #91949E 63%, #F4F5F8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* reflexo que atravessa o "IPHONE" */
+.headline h1::after{
+  content: attr(data-word);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 38%, rgba(255,255,255,.92) 50%, transparent 62%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sheen 5.2s ease-in-out 1.1s infinite;
+  pointer-events: none;
+}
+
+@keyframes sheen{
+  0%, 62%, 100%{ background-position: 170% 0; }
+  88%          { background-position: -70% 0; }
+}
+
+.headline .eyebrow:last-child{ letter-spacing: .5em; padding-left: .5em; }
+
+.divider{
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(90deg, transparent, var(--line-gold) 22%, var(--gold) 50%, var(--line-gold) 78%, transparent);
+}
+
+/* ---------- 3. garantias ---------- */
+.trust{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px 4px;
+}
+
+@media (max-width: 379px){
+  .trust{ grid-template-columns: repeat(2, 1fr); gap: 18px 8px; }
+}
+
+.trust li{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.trust svg{ width: 25px; height: 25px; color: var(--gold); flex: none; }
+
+.trust span{
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  line-height: 1.3;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  color: #D8D2CA;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 4. links ---------- */
+.links{
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.link{
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, var(--surface-hi) 0%, var(--surface) 62%, #100E15 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 10px 24px -14px rgba(0,0,0,.9);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.link--gold{
+  border-color: var(--line-gold);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.05) inset,
+    0 0 0 1px rgba(242,168,28,.07),
+    0 12px 30px -16px rgba(242,168,28,.55);
+}
+
+.link:hover,
+.link:focus-visible{
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.07) inset,
+    0 0 0 1px rgba(242,168,28,.22),
+    0 16px 34px -16px rgba(242,168,28,.7);
+}
+
+.link:focus-visible{ outline: 2px solid var(--gold-hi); outline-offset: 3px; }
+.link:active{ transform: translateY(0); }
+
+.link-mark{
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+}
+.link-mark svg{ width: 100%; height: 100%; }
+
+.link-body{ min-width: 0; }
+
+.link-kicker{
+  display: block;
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 1.15;
+}
+
+.link-title{
+  display: block;
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.link-note{
+  display: block;
+  margin-top: 3px;
+  font-size: 11.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+.link-end{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.link-end .wa{ width: 30px; height: 30px; color: var(--wa); }
+.link-end .chev{ width: 17px; height: 17px; }
+
+/* cartão do Instagram, mais discreto */
+.link--ig{
+  grid-template-columns: 34px 1fr auto;
+  padding: 13px 16px;
+  border-radius: var(--r-md);
+}
+.link--ig .link-mark{ width: 34px; height: 34px; color: #E9E4DC; }
+.link--ig .ig-line{
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 11.5px;
+  line-height: 1.35;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #D8D2CA;
+}
+.link--ig .ig-handle{ color: var(--gold); }
+
+/* ---------- 5. marcas ---------- */
+.brands{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.brands li{
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #8F9198;
+}
+
+.brands li.more{
+  flex-basis: 100%;
+  margin-top: 2px;
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  color: var(--gold);
+  text-align: center;
+}
+
+/* ---------- 6. rodapé ---------- */
+.foot{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: .05em;
+  color: var(--muted-dim);
+}
+.foot strong{
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+ul{ list-style: none; margin: 0; padding: 0; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <!-- ===== marca ===== -->
+  <header class="brand">
+    <svg class="monogram" viewBox="0 0 124 86" role="img" aria-label="Monograma Moraes">
+      <defs>
+        <linearGradient id="mg-silver" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0"   stop-color="#FFFFFF"/>
+          <stop offset=".45" stop-color="#C6C9D1"/>
+          <stop offset="1"   stop-color="#6E7179"/>
+        </linearGradient>
+        <linearGradient id="mg-gold" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0"   stop-color="#FFE08A"/>
+          <stop offset=".5"  stop-color="#F2A81C"/>
+          <stop offset="1"   stop-color="#9C6A10"/>
+        </linearGradient>
+      </defs>
+      <path d="M8 80 V10 L62 64 L116 10 V80"
+            fill="none" stroke="url(#mg-silver)" stroke-width="11"
+            stroke-linejoin="miter" stroke-miterlimit="6"/>
+      <path d="M32 80 V28 L62 58 L92 28 V80"
+            fill="none" stroke="url(#mg-gold)" stroke-width="11"
+            stroke-linejoin="miter" stroke-miterlimit="6"/>
+    </svg>
+
+    <p class="wordmark">MORAES</p>
+    <p class="brand-sub">Celulares &amp; Eletrônicos</p>
+
+    <p class="tagline">Muito mais que eletrônicos. Conectamos você ao que importa.</p>
+    <hr class="tagline-rule">
+  </header>
+
+  <!-- ===== chamada ===== -->
+  <section class="headline" aria-label="Referência em iPhone e muito mais">
+    <p class="eyebrow">Referência em</p>
+    <h1 data-word="IPHONE">IPHONE</h1>
+    <p class="eyebrow">E muito mais</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== garantias ===== -->
+  <ul class="trust">
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2.7 5 5.4v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.4L12 2.7Z"/>
+        <path d="m9 11.7 2.1 2.1 4-4.2"/>
+      </svg>
+      <span>Produtos<br>originais</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2.6" y="5.2" width="18.8" height="13.6" rx="2.4"/>
+        <path d="M2.6 9.8h18.8"/>
+        <path d="M6 14.6h3.4"/>
+      </svg>
+      <span>Até 12x<br>no cartão</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2.6 6.6h10.2v9.8H2.6z"/>
+        <path d="M12.8 10.2h3.6l3 3.1v3.1h-6.6z"/>
+        <circle cx="7" cy="18.4" r="1.9"/>
+        <circle cx="16.8" cy="18.4" r="1.9"/>
+      </svg>
+      <span>Envio para<br>todo Brasil</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4.2 14.4v-2.2a7.8 7.8 0 0 1 15.6 0v2.2"/>
+        <path d="M4.2 13.4h1.6a1.4 1.4 0 0 1 1.4 1.4v2.6a1.4 1.4 0 0 1-1.4 1.4H4.2Z"/>
+        <path d="M19.8 13.4h-1.6a1.4 1.4 0 0 0-1.4 1.4v2.6a1.4 1.4 0 0 0 1.4 1.4h1.6Z"/>
+      </svg>
+      <span>Atendimento<br>especializado</span>
+    </li>
+  </ul>
+
+  <!-- ===== links ===== -->
+  <nav class="links" aria-label="Canais de contato">
+
+    <a class="link link--gold" id="lk-iphone" href="#" target="_blank" rel="noopener">
+      <span class="link-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#E9EAEE">
+          <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
+          <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
+        </svg>
+      </span>
+      <span class="link-body">
+        <span class="link-kicker">WhatsApp</span>
+        <span class="link-title">Venda de iPhone</span>
+        <span class="link-note">Tire suas dúvidas agora</span>
+      </span>
+      <span class="link-end" aria-hidden="true">
+        <svg class="wa" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.89 2.38 1.01 2.54c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/>
+        </svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="link link--gold" id="lk-android" href="#" target="_blank" rel="noopener">
+      <span class="link-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="var(--droid)">
+          <path d="M6.2 10.6h11.6v6.3c0 .75-.6 1.35-1.35 1.35H7.55c-.75 0-1.35-.6-1.35-1.35v-6.3Z"/>
+          <path d="M6.2 9.5a5.8 5.8 0 0 1 11.6 0H6.2Z"/>
+          <circle cx="9.5" cy="7" r=".82" fill="#07060A"/>
+          <circle cx="14.5" cy="7" r=".82" fill="#07060A"/>
+          <path d="M7.5 3.1 8.7 5" stroke="var(--droid)" stroke-width="1.15" stroke-linecap="round"/>
+          <path d="M16.5 3.1 15.3 5" stroke="var(--droid)" stroke-width="1.15" stroke-linecap="round"/>
+          <rect x="2.9" y="10.7" width="2.3" height="6.1" rx="1.15"/>
+          <rect x="18.8" y="10.7" width="2.3" height="6.1" rx="1.15"/>
+          <rect x="8.5" y="18.3" width="2.2" height="4.2" rx="1.1"/>
+          <rect x="13.3" y="18.3" width="2.2" height="4.2" rx="1.1"/>
+        </svg>
+      </span>
+      <span class="link-body">
+        <span class="link-kicker">WhatsApp</span>
+        <span class="link-title">Venda de Android</span>
+        <span class="link-note">Fale com nossa equipe</span>
+      </span>
+      <span class="link-end" aria-hidden="true">
+        <svg class="wa" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.89 2.38 1.01 2.54c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/>
+        </svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="link" id="lk-maps" href="#" target="_blank" rel="noopener">
+      <span class="link-mark" aria-hidden="true" style="color: var(--gold)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21.5s7-6 7-11.3a7 7 0 1 0-14 0C5 15.5 12 21.5 12 21.5Z"/>
+          <circle cx="12" cy="10" r="2.6"/>
+        </svg>
+      </span>
+      <span class="link-body">
+        <span class="link-title">Nosso endereço</span>
+        <span class="link-note">Venha nos fazer uma visita</span>
+      </span>
+      <span class="link-end" aria-hidden="true">
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="link link--ig" id="lk-ig" href="#" target="_blank" rel="noopener">
+      <span class="link-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="16.9" cy="7.1" r="1.05" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="link-body">
+        <span class="ig-line">Acompanhe as novidades<br>no nosso <span class="ig-handle" id="ig-handle">@moraeseletronicos</span></span>
+      </span>
+      <span class="link-end" aria-hidden="true">
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+  </nav>
+
+  <hr class="divider">
+
+  <!-- ===== marcas ===== -->
+  <ul class="brands" aria-label="Marcas que trabalhamos">
+    <li>Apple</li>
+    <li>Samsung</li>
+    <li>Motorola</li>
+    <li>Xiaomi</li>
+    <li class="more">e muito mais marcas</li>
+  </ul>
+
+  <!-- ===== rodapé ===== -->
+  <footer class="foot">
+    <strong>Moraes Celulares &amp; Eletrônicos</strong>
+    <span id="ft-horario">Seg a Sex 9h–18h &middot; Sáb 9h–13h</span>
+    <span id="ft-endereco">Rua Exemplo, 123 &middot; Centro</span>
+    <span>&copy; <span id="ft-ano">2026</span> — Todos os direitos reservados</span>
+  </footer>
+
+</main>
+
+<script>
+/* ============================================================
+   EDITE AQUI — tudo que muda de verdade está neste bloco.
+   Telefones no formato internacional, só dígitos: 55 + DDD + número.
+   ============================================================ */
+const MORAES = {
+  whatsappIphone:  "5500000000000",
+  whatsappAndroid: "5500000000000",
+  msgIphone:       "Olá! Vim pelo link da bio e quero saber sobre iPhone.",
+  msgAndroid:      "Olá! Vim pelo link da bio e quero saber sobre Android.",
+  instagram:       "moraeseletronicos",
+  mapsUrl:         "https://www.google.com/maps/search/?api=1&query=Moraes+Celulares+e+Eletronicos",
+  endereco:        "Rua Exemplo, 123 · Centro",
+  horario:         "Seg a Sex 9h–18h · Sáb 9h–13h"
+};
+
+/* ---------- daqui para baixo não precisa mexer ---------- */
+(function aplicar(){
+  const wa = (fone, msg) =>
+    "https://wa.me/" + fone + "?text=" + encodeURIComponent(msg);
+
+  const set = (id, href) => {
+    const el = document.getElementById(id);
+    if (el) el.href = href;
+  };
+
+  set("lk-iphone",  wa(MORAES.whatsappIphone,  MORAES.msgIphone));
+  set("lk-android", wa(MORAES.whatsappAndroid, MORAES.msgAndroid));
+  set("lk-maps",    MORAES.mapsUrl);
+  set("lk-ig",      "https://instagram.com/" + MORAES.instagram);
+
+  const texto = (id, valor) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = valor;
+  };
+
+  texto("ig-handle",   "@" + MORAES.instagram);
+  texto("ft-endereco", MORAES.endereco);
+  texto("ft-horario",  MORAES.horario);
+  texto("ft-ano",      String(new Date().getFullYear()));
+})();
+</script>
+
+</body>
+</html>
