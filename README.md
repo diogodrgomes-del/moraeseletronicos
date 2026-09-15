@@ -6,7 +6,9 @@ HTML/CSS/JS puro, arquivo único, sem build e sem dependências.
 ## Estrutura
 
 ```
-index.html   → a página inteira (estilos, ícones SVG e configuração)
+index.html         → a página inteira (estilos, ícones SVG e configuração)
+assets/            → as fotos de produto (ver abaixo)
+assets/LEIA-ME.md  → quais arquivos a página procura
 ```
 
 ## Como editar
@@ -40,32 +42,45 @@ python3 -m http.server 8000
 Por ser um arquivo estático, sobe direto em Netlify, Vercel, GitHub Pages ou
 qualquer hospedagem. Não há passo de build.
 
-## Os aparelhos da abertura
+## As fotos
 
-Os três iPhones são desenhados em CSS — nenhuma imagem é carregada, então a
-página abre sem esperar download. Ficam no bloco `3. Os aparelhos` do `<style>`:
+A página tem quatro espaços de foto, todos ligados à pasta `assets/`:
 
-- `.dev--azul`, `.dev--laranja`, `.dev--titanio` — as três cores
-- `.cam` — o módulo da câmera; os `<i>` são as lentes e os `<b>` o flash e o sensor
-- `.maca` — o símbolo da Apple
+| Arquivo | Onde aparece | Formato |
+|---|---|---|
+| `hero.jpg` | Cartão de abertura | deitada 16:10, mín. 1200×750 |
+| `produto-1.jpg` | Vitrine, 1ª caixa | quadrada, mín. 600×600 |
+| `produto-2.jpg` | Vitrine, 2ª caixa | quadrada, mín. 600×600 |
+| `produto-3.jpg` | Vitrine, 3ª caixa | quadrada, mín. 600×600 |
 
-Para trocar uma cor, basta mudar o `background` da classe. Para usar foto real
-de produto, trocar a `<div class="trio">` por `<img>` e manter a mesma altura.
+**Enquanto o arquivo não existir**, a página mostra um aparelho desenhado em CSS
+no lugar — nunca fica um buraco nem um ícone de imagem quebrada. Basta soltar os
+arquivos na pasta que as fotos entram sozinhas, sem tocar no código.
+
+Quem faz isso é o bloco `fotos()` no final do `index.html`: se o `<img>` falha,
+a `<figure>` ganha a classe `sem-foto` e o desenho aparece.
+
+## Como o visual está montado
+
+- **Vidro fosco** — `backdrop-filter` sobre a luz de fundo, nos cartões e chips
+- **Contorno em degradê** — classe `.stroked`, feita com `mask-composite` em vez
+  de borda falsa, então o degradê corre pela borda sem pintar o miolo
+- **Grão** — ruído em SVG embutido sobre o fundo, a 4%, para o degradê não ficar
+  com aquele aspecto chapado
+- **Tipos** — Archivo variável (o eixo `wdth` deixa o "iPhone" mais largo) e
+  Plus Jakarta Sans no texto corrido
 
 ## Enxugado para a primeira tela
 
-A ordem foi pensada para o cliente ver tudo que importa sem rolar: marca,
-"Referência em iPhone em Londrina", os aparelhos, as quatro garantias e os dois
-botões de WhatsApp cabem em ~740px. Endereço, Instagram, marcas e rodapé vêm
-logo abaixo.
-
-Se for mexer no espaçamento, o controle central é o `gap` do `.wrap`.
+Marca, chamada, produto, as quatro garantias e os dois botões de WhatsApp cabem
+em ~650px. Endereço, Instagram, vitrine, marcas e rodapé vêm logo abaixo.
+O controle central do espaçamento é o `gap` do `.wrap`.
 
 ## Pendências
 
 - [ ] Trocar os WhatsApps de exemplo pelos números reais
 - [ ] Confirmar usuário do Instagram e link do Maps
 - [ ] Substituir o monograma SVG pelo arquivo oficial da marca
-- [ ] Avaliar trocar os iPhones em CSS por foto real de produto
+- [ ] Colocar as fotos reais em `assets/` (hero + 3 produtos)
 - [ ] Endereço e horário reais da loja em Londrina
 - [ ] Favicon e imagem de compartilhamento (Open Graph)
