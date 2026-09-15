@@ -4,19 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Moraes Celulares &amp; Eletrônicos</title>
-<meta name="description" content="Referência em iPhone e muito mais. Produtos originais, até 12x no cartão e envio para todo o Brasil.">
+<meta name="description" content="Referência em iPhone em Londrina. Produtos originais, até 18x no cartão e envio para todo o Brasil.">
 <meta name="theme-color" content="#07060A">
 <meta property="og:title" content="Moraes Celulares &amp; Eletrônicos">
-<meta property="og:description" content="Referência em iPhone e muito mais. Fale com a gente no WhatsApp.">
+<meta property="og:description" content="Referência em iPhone em Londrina. Fale com a gente no WhatsApp.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Italianno&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Manrope:wght@400;600&display=swap">
 <style>
 /* ============================================================
    MORAES — link na bio
-   Identidade fixa (preto + ouro). Feito para celular.
-   Todo o movimento da página está no iPhone; o resto fica parado.
+   Preto e ouro. Feito para celular, tudo o que importa na
+   primeira tela: marca, chamada, produto, garantias e os
+   dois WhatsApps.
+   Sem imagem externa: os aparelhos são desenhados em CSS.
    ============================================================ */
 :root{
   --ground:     #07060A;
@@ -47,7 +50,7 @@ body{
   color: var(--text);
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
@@ -59,24 +62,23 @@ body::before{
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(118% 58% at 50% -6%, rgba(242,168,28,.19) 0%, rgba(242,168,28,0) 60%),
-    radial-gradient(85% 45% at 88% 62%, rgba(150,158,182,.07) 0%, rgba(150,158,182,0) 70%),
-    linear-gradient(180deg, var(--ground-2) 0%, var(--ground) 42%, #050409 100%);
+    radial-gradient(118% 52% at 50% -4%, rgba(242,168,28,.19) 0%, rgba(242,168,28,0) 58%),
+    radial-gradient(82% 42% at 88% 58%, rgba(150,158,182,.07) 0%, rgba(150,158,182,0) 70%),
+    linear-gradient(180deg, var(--ground-2) 0%, var(--ground) 40%, #050409 100%);
 }
 
 .wrap{
   width: 100%;
-  max-width: 430px;
+  max-width: 420px;
   margin-inline: auto;
-  padding-inline: 20px;
-  padding-block: 30px 40px;
+  padding-inline: 18px;
+  padding-block: 18px 30px;
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 18px;
 }
 
 ul{ list-style: none; margin: 0; padding: 0; }
-
 a{ touch-action: manipulation; }
 
 /* ============================================================
@@ -86,18 +88,18 @@ a{ touch-action: manipulation; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
   text-align: center;
 }
 
-.monogram{ width: 96px; height: auto; display: block; }
+.monogram{ width: 72px; height: auto; display: block; }
 
 .wordmark{
   margin: 0;
   padding-left: .15em;
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 900;
-  font-size: 26px;
+  font-size: 23px;
   line-height: 1;
   letter-spacing: .15em;
   background: linear-gradient(180deg, #FFFFFF 0%, #DDDFE5 44%, #9DA0A9 74%, #EEF0F4 100%);
@@ -108,11 +110,11 @@ a{ touch-action: manipulation; }
 
 .brand-sub{
   margin: 0;
-  padding-left: .36em;
+  padding-left: .34em;
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 600;
-  font-size: 9.5px;
-  letter-spacing: .36em;
+  font-size: 9px;
+  letter-spacing: .34em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -124,7 +126,7 @@ a{ touch-action: manipulation; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   text-align: center;
 }
 
@@ -132,9 +134,9 @@ a{ touch-action: manipulation; }
   margin: 0;
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 600;
-  font-size: 10.5px;
-  letter-spacing: .44em;
-  padding-left: .44em;
+  font-size: 10px;
+  letter-spacing: .42em;
+  padding-left: .42em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -144,7 +146,7 @@ a{ touch-action: manipulation; }
   padding-left: .03em;
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 900;
-  font-size: clamp(50px, 16.5vw, 68px);
+  font-size: clamp(46px, 15vw, 62px);
   line-height: .92;
   letter-spacing: .03em;
   color: #E6E8ED;
@@ -154,318 +156,162 @@ a{ touch-action: manipulation; }
   -webkit-text-fill-color: transparent;
 }
 
-.headline .eyebrow--wide{ letter-spacing: .5em; padding-left: .5em; }
+.cidade{
+  margin: 3px 0 0;
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .3em;
+  padding-left: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
 
 /* ============================================================
-   3. O iPhone — única coisa que se mexe na página
+   3. Os aparelhos — desenhados em CSS, sem movimento
    ============================================================ */
-.stage{
+.trio{
   position: relative;
-  display: grid;
-  place-items: center;
-  perspective: 1100px;
-  padding-block: 6px 30px;
-}
-
-.phone{
-  position: relative;
-  width: clamp(152px, 45vw, 188px);
-  aspect-ratio: 9 / 19.3;
-  border-radius: 15%/7%;
-  padding: 3px;
-  background: linear-gradient(148deg,
-      #b7bcc4  0%,  #696d74  9%,  #eaedf2 16%, #787c84 25%,
-      #3f424a 43%,  #9ca1a9 57%,  #d3d7de 65%, #5f636a 77%, #a6abb3 100%);
-  box-shadow:
-    0 34px 58px -26px rgba(0,0,0,.92),
-    0 0 42px -12px rgba(242,168,28,.22),
-    0 0 0 1px rgba(255,255,255,.05);
-  transform-style: preserve-3d;
-  animation: flutuar 7s ease-in-out infinite;
-}
-
-@keyframes flutuar{
-  0%, 100% { transform: translateY(0)     rotateY(-10deg) rotateX(0deg)   rotateZ(0deg); }
-  50%      { transform: translateY(-13px) rotateY(-4deg)  rotateX(1.6deg) rotateZ(.7deg); }
-}
-
-.phone-bezel{
-  position: relative;
-  height: 100%;
-  border-radius: 14%/6.4%;
-  padding: 6px;
-  background: #050406;
-  overflow: hidden;
-}
-
-.screen{
-  position: relative;
-  height: 100%;
-  border-radius: 12.5%/5.8%;
-  overflow: hidden;
-  background: #10131A;
-}
-
-/* papéis de parede — as três cores das fotos de referência */
-.wall{
-  position: absolute;
-  inset: 0;
-  animation: trocaWall 14.4s ease-in-out infinite;
-}
-
-.wall--dunas{
-  background: linear-gradient(180deg, #8FB7D4 0%, #BFC3B2 34%, #E0D4B0 50%, #C7AF80 68%, #8D7349 100%);
-}
-.wall--dunas::after{
-  content: "";
-  position: absolute;
-  left: -34%; right: -34%; bottom: -14%;
-  height: 54%;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  background: linear-gradient(180deg, #EADCB6 0%, #B79A6B 58%, #7E6541 100%);
-  box-shadow: 0 -12px 26px -14px rgba(90,70,40,.8);
-}
-
-.wall--roxo{
-  background:
-    radial-gradient(88% 66% at 30% 16%, #7E3459 0%, rgba(126,52,89,0) 62%),
-    radial-gradient(76% 58% at 80% 84%, #4C1C39 0%, rgba(76,28,57,0) 60%),
-    linear-gradient(162deg, #3C1229 0%, #1B0713 100%);
-  animation-delay: -9.6s;
-}
-
-.wall--laranja{
-  background:
-    radial-gradient(92% 62% at 24% 18%, #FFB066 0%, rgba(255,176,102,0) 58%),
-    linear-gradient(166deg, #EA7A2C 0%, #A8431A 48%, #45190A 100%);
-  animation-delay: -4.8s;
-}
-
-@keyframes trocaWall{
-  0%, 27%  { opacity: 1; }
-  34%, 93% { opacity: 0; }
-  100%     { opacity: 1; }
-}
-
-/* interface da tela de bloqueio */
-.screen-ui{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 19.5%;
-  color: #fff;
-  text-shadow: 0 1px 12px rgba(0,0,0,.4);
-  pointer-events: none;
-}
-
-.scr-data{
-  font-size: 7.5px;
-  font-weight: 600;
-  letter-spacing: .02em;
-}
-
-.scr-hora{
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-weight: 300;
-  font-size: 40px;
-  line-height: 1;
-  letter-spacing: -.02em;
-  margin-top: 1px;
-}
-
-.status{
-  position: absolute;
-  top: 4.6%;
-  right: 9.5%;
   display: flex;
   align-items: flex-end;
-  gap: 2.5px;
-  height: 6px;
+  justify-content: center;
+  padding-block: 2px 10px;
 }
-.status i{ display: block; width: 2px; background: #fff; border-radius: 1px; }
-.status i:nth-child(1){ height: 2.5px; }
-.status i:nth-child(2){ height: 4px; }
-.status i:nth-child(3){ height: 5.5px; }
-.status i:nth-child(4){ height: 6px; opacity: .45; }
-.status b{
-  display: block;
-  width: 11px; height: 6px;
-  border: 1px solid rgba(255,255,255,.8);
-  border-radius: 2px;
-  margin-left: 3px;
-  position: relative;
-}
-.status b::after{
+
+.trio::before{
   content: "";
   position: absolute;
-  inset: 1px;
-  right: 3.5px;
-  background: #fff;
-  border-radius: 1px;
-}
-
-.island{
-  position: absolute;
-  top: 2.4%;
   left: 50%;
+  bottom: 6px;
   transform: translateX(-50%);
-  width: 31%;
-  height: 4.2%;
-  background: #000;
-  border-radius: 99px;
-}
-
-.acoes{
-  position: absolute;
-  bottom: 7.5%;
-  left: 0; right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding-inline: 11%;
-}
-.acoes span{
-  width: 21px; height: 21px;
+  width: 76%;
+  height: 20px;
   border-radius: 50%;
-  background: rgba(255,255,255,.22);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  display: grid;
-  place-items: center;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 72%);
+  filter: blur(6px);
 }
-.acoes svg{ width: 11px; height: 11px; color: #fff; }
 
-.home-bar{
+.dev{
+  position: relative;
+  aspect-ratio: 9 / 19.2;
+  border-radius: 15%/7%;
+  flex: none;
+  box-shadow:
+    0 0 0 1.5px rgba(255,255,255,.14) inset,
+    0 18px 30px -16px rgba(0,0,0,.9);
+}
+
+.dev--azul   { width: clamp(78px,  22vw,  92px); margin-right: -7%; z-index: 1;
+  background: linear-gradient(142deg, #46557C 0%, #253052 26%, #18203A 58%, #10162A 100%); }
+.dev--laranja{ width: clamp(84px,  24vw, 100px); margin-right: -7%; z-index: 2;
+  background: linear-gradient(142deg, #FFA64F 0%, #E9762B 26%, #C4551A 58%, #9B3F12 100%); }
+.dev--titanio{ width: clamp(94px,  27vw, 112px);                    z-index: 3;
+  background: linear-gradient(142deg, #E4E6E8 0%, #BFC2C5 26%, #9DA0A4 58%, #83868A 100%); }
+
+/* plateau da câmera */
+.cam{
   position: absolute;
-  bottom: 1.4%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 34%;
-  height: 3px;
-  border-radius: 99px;
-  background: rgba(255,255,255,.72);
+  top: 3.6%; left: 5%; right: 5%;
+  height: 16.5%;
+  border-radius: 11% / 26%;
+  background: rgba(255,255,255,.1);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.17) inset;
 }
 
-/* reflexo que corre pelo vidro */
-.brilho{
+.cam i,
+.cam b{
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+/* as três lentes */
+.cam i{
+  background: radial-gradient(60% 60% at 38% 32%, #4C5058 0%, #101216 62%, #04050A 100%);
+  box-shadow: 0 0 0 1.6px rgba(255,255,255,.26);
+}
+.cam i:nth-child(1){ height: 42%; left: 4%;    top: 6%; }
+.cam i:nth-child(2){ height: 42%; left: 4%;    top: 52%; }
+.cam i:nth-child(3){ height: 42%; left: 21.5%; top: 29%; }
+
+/* flash e sensor */
+.cam b:nth-of-type(1){ height: 30%; right: 7%;   top: 14%;
+  background: radial-gradient(50% 50% at 50% 42%, #FFFDF2 0%, #D9D2BC 60%, #8E8874 100%);
+  box-shadow: 0 0 0 1.4px rgba(255,255,255,.22); }
+.cam b:nth-of-type(2){ height: 16%; right: 9.5%; top: 58%;
+  background: #1C1E23;
+  box-shadow: 0 0 0 1.2px rgba(255,255,255,.14); }
+
+/* maçã centralizada */
+.maca{
+  position: absolute;
+  top: 46%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 26%;
+  color: rgba(255,255,255,.42);
+}
+.maca svg{ width: 100%; height: auto; display: block; }
+
+/* faixa de luz no vidro */
+.dev::after{
+  content: "";
   position: absolute;
   inset: 0;
-  border-radius: 12.5%/5.8%;
-  background: linear-gradient(108deg,
-      transparent 30%,
-      rgba(255,255,255,.20) 44%,
-      rgba(255,255,255,.04) 51%,
-      transparent 60%);
-  background-size: 320% 100%;
-  animation: correBrilho 7s ease-in-out infinite;
+  border-radius: inherit;
+  background: linear-gradient(118deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 34%, rgba(255,255,255,0) 70%, rgba(255,255,255,.08) 100%);
   pointer-events: none;
 }
 
-@keyframes correBrilho{
-  0%, 48%  { background-position: 155% 0; }
-  86%,100% { background-position: -75% 0; }
-}
-
-/* botões laterais */
-.botao{
-  position: absolute;
-  background: linear-gradient(180deg, #8f949c, #4a4d54 45%, #babfc7);
-  border-radius: 2px;
-}
-.botao--acao  { left: -2px; top: 17%;   width: 2.5px; height: 4.5%; }
-.botao--vol-up{ left: -2px; top: 26%;   width: 2.5px; height: 8%; }
-.botao--vol-dn{ left: -2px; top: 36.5%; width: 2.5px; height: 8%; }
-.botao--power { right: -2px; top: 28%;  width: 2.5px; height: 12%; }
-
-/* sombra projetada no chão */
-.sombra{
-  position: absolute;
-  bottom: 6px;
-  width: 58%;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,.72) 0%, rgba(0,0,0,0) 72%);
-  filter: blur(5px);
-  animation: respiraSombra 7s ease-in-out infinite;
-}
-
-@keyframes respiraSombra{
-  0%, 100% { transform: scaleX(1);    opacity: .85; }
-  50%      { transform: scaleX(.82);  opacity: .55; }
-}
-
 /* ============================================================
-   4. Assinatura
-   ============================================================ */
-.tagline{
-  margin: 0 auto;
-  max-width: 20ch;
-  text-align: center;
-  font-family: "Italianno", "Brush Script MT", cursive;
-  font-size: 28px;
-  line-height: 1.15;
-  color: var(--gold-hi);
-  text-wrap: balance;
-}
-
-.divider{
-  height: 1px;
-  border: 0;
-  margin: 0;
-  background: linear-gradient(90deg, transparent, var(--line-gold) 22%, var(--gold) 50%, var(--line-gold) 78%, transparent);
-}
-
-/* ============================================================
-   5. Garantias
+   4. Garantias
    ============================================================ */
 .trust{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px 4px;
+  gap: 4px;
 }
 
 .trust li{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   text-align: center;
 }
 
-.trust svg{ width: 24px; height: 24px; color: var(--gold); flex: none; }
+.trust svg{ width: 22px; height: 22px; color: var(--gold); flex: none; }
 
 .trust span{
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 9px;
+  font-size: 8.2px;
   line-height: 1.3;
-  letter-spacing: .035em;
+  letter-spacing: .02em;
   text-transform: uppercase;
   color: #D8D2CA;
   overflow-wrap: anywhere;
 }
 
 /* ============================================================
-   6. Links
+   5. Links
    ============================================================ */
 .links{
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .link{
   display: grid;
-  grid-template-columns: 40px 1fr auto;
+  grid-template-columns: 36px 1fr auto;
   align-items: center;
-  gap: 14px;
-  min-height: 64px;
-  padding: 14px 15px;
-  border-radius: 19px;
+  gap: 12px;
+  min-height: 60px;
+  padding: 11px 14px;
+  border-radius: 17px;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, var(--surface-hi) 0%, var(--surface) 62%, #100E15 100%);
-  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 10px 24px -14px rgba(0,0,0,.9);
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 9px 22px -14px rgba(0,0,0,.9);
   text-decoration: none;
   color: inherit;
   transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
@@ -476,7 +322,7 @@ a{ touch-action: manipulation; }
   box-shadow:
     0 1px 0 rgba(255,255,255,.05) inset,
     0 0 0 1px rgba(242,168,28,.07),
-    0 12px 30px -16px rgba(242,168,28,.55);
+    0 11px 28px -16px rgba(242,168,28,.55);
 }
 
 @media (hover: hover){
@@ -486,19 +332,14 @@ a{ touch-action: manipulation; }
     box-shadow:
       0 1px 0 rgba(255,255,255,.07) inset,
       0 0 0 1px rgba(242,168,28,.22),
-      0 16px 34px -16px rgba(242,168,28,.7);
+      0 15px 32px -16px rgba(242,168,28,.7);
   }
 }
 
 .link:active{ transform: scale(.985); border-color: var(--gold); }
 .link:focus-visible{ outline: 2px solid var(--gold-hi); outline-offset: 3px; }
 
-.link-mark{
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-}
+.link-mark{ width: 36px; height: 36px; display: grid; place-items: center; }
 .link-mark svg{ width: 100%; height: 100%; }
 
 .link-body{ min-width: 0; }
@@ -507,7 +348,7 @@ a{ touch-action: manipulation; }
   display: block;
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.15;
   letter-spacing: .05em;
   text-transform: uppercase;
@@ -518,7 +359,7 @@ a{ touch-action: manipulation; }
   display: block;
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 16.5px;
+  font-size: 15.5px;
   line-height: 1.2;
   letter-spacing: .02em;
   text-transform: uppercase;
@@ -527,100 +368,90 @@ a{ touch-action: manipulation; }
 
 .link-note{
   display: block;
-  margin-top: 2px;
-  font-size: 11px;
-  letter-spacing: .05em;
+  margin-top: 1px;
+  font-size: 10.5px;
+  letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--muted-dim);
 }
 
-.link-end{
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--muted);
-}
-.link-end .wa{ width: 28px; height: 28px; color: var(--wa); }
-.link-end .chev{ width: 16px; height: 16px; }
+.link-end{ display: flex; align-items: center; gap: 6px; color: var(--muted); }
+.link-end .wa{ width: 26px; height: 26px; color: var(--wa); }
+.link-end .chev{ width: 15px; height: 15px; }
 
 .link--ig{
-  grid-template-columns: 32px 1fr auto;
-  min-height: 56px;
-  padding: 12px 15px;
-  border-radius: 14px;
+  grid-template-columns: 30px 1fr auto;
+  min-height: 52px;
+  padding: 10px 14px;
+  border-radius: 13px;
 }
-.link--ig .link-mark{ width: 32px; height: 32px; color: #E9E4DC; }
+.link--ig .link-mark{ width: 30px; height: 30px; color: #E9E4DC; }
 .link--ig .ig-line{
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 10.5px;
   line-height: 1.35;
-  letter-spacing: .06em;
+  letter-spacing: .05em;
   text-transform: uppercase;
   color: #D8D2CA;
 }
 .link--ig .ig-handle{ color: var(--gold); }
 
 /* ============================================================
-   7. Marcas — Apple e Xiaomi
+   6. Marcas — uma linha só
    ============================================================ */
 .marcas{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+  padding: 11px 12px;
+  border-radius: 13px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(29,25,36,.6), rgba(16,14,21,.6));
 }
 
 .marcas li{
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: 12px 8px;
-  border-radius: 13px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(29,25,36,.7), rgba(16,14,21,.7));
-}
-
-.marcas svg{ width: 19px; height: 19px; color: #D6D8DE; flex: none; }
-
-.marcas span{
+  gap: 7px;
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: #D6D8DE;
 }
 
-.marcas-nota{
-  margin: 0;
-  text-align: center;
-  font-family: "Archivo", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 9.5px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
+.marcas svg{ width: 16px; height: 16px; color: currentColor; flex: none; }
+
+.marcas li.selo{
+  font-size: 8.5px;
+  letter-spacing: .14em;
   color: var(--gold);
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
 }
 
 /* ============================================================
-   8. Rodapé
+   7. Rodapé
    ============================================================ */
 .foot{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   text-align: center;
-  font-size: 11px;
-  letter-spacing: .04em;
+  font-size: 10.5px;
+  letter-spacing: .03em;
   color: var(--muted-dim);
 }
 .foot strong{
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 9.5px;
-  letter-spacing: .2em;
+  font-size: 9px;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -628,10 +459,8 @@ a{ touch-action: manipulation; }
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{
     animation-duration: .001ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: .001ms !important;
   }
-  .phone{ transform: rotateY(-7deg); }
 }
 </style>
 </head>
@@ -662,63 +491,44 @@ a{ touch-action: manipulation; }
   </header>
 
   <!-- ===== chamada ===== -->
-  <section class="headline" aria-label="Referência em iPhone e muito mais">
+  <section class="headline">
     <p class="eyebrow">Referência em</p>
     <h1>IPHONE</h1>
-    <p class="eyebrow eyebrow--wide">E muito mais</p>
+    <p class="cidade">em Londrina</p>
   </section>
 
-  <!-- ===== o iPhone ===== -->
-  <div class="stage" aria-hidden="true">
-    <div class="phone">
-      <span class="botao botao--acao"></span>
-      <span class="botao botao--vol-up"></span>
-      <span class="botao botao--vol-dn"></span>
-      <span class="botao botao--power"></span>
-
-      <div class="phone-bezel">
-        <div class="screen">
-          <div class="wall wall--dunas"></div>
-          <div class="wall wall--roxo"></div>
-          <div class="wall wall--laranja"></div>
-
-          <div class="status">
-            <i></i><i></i><i></i><i></i><b></b>
-          </div>
-
-          <div class="screen-ui">
-            <span class="scr-data">Qua, 1 de abril</span>
-            <span class="scr-hora">9:41</span>
-          </div>
-
-          <span class="island"></span>
-
-          <div class="acoes">
-            <span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 3h6v4l-1.5 2v10a2.5 2.5 0 0 1-5 0V9L9 7V3Z"/>
-              </svg>
-            </span>
-            <span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 8.5h4L9 6h6l2 2.5h4v11H3v-11Z"/>
-                <circle cx="12" cy="13.5" r="3.2"/>
-              </svg>
-            </span>
-          </div>
-
-          <span class="home-bar"></span>
-          <span class="brilho"></span>
-        </div>
+  <!-- ===== aparelhos ===== -->
+  <div class="trio" aria-hidden="true">
+    <div class="dev dev--azul">
+      <div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
+      <div class="maca">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
+          <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
+        </svg>
       </div>
     </div>
-    <div class="sombra"></div>
+
+    <div class="dev dev--laranja">
+      <div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
+      <div class="maca">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
+          <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="dev dev--titanio">
+      <div class="cam"><i></i><i></i><i></i><b></b><b></b></div>
+      <div class="maca" style="color: rgba(255,255,255,.55)">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
+          <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
+        </svg>
+      </div>
+    </div>
   </div>
-
-  <!-- ===== assinatura ===== -->
-  <p class="tagline">Muito mais que eletrônicos. Conectamos você ao que importa.</p>
-
-  <hr class="divider">
 
   <!-- ===== garantias ===== -->
   <ul class="trust">
@@ -735,7 +545,7 @@ a{ touch-action: manipulation; }
         <path d="M2.6 9.8h18.8"/>
         <path d="M6 14.6h3.4"/>
       </svg>
-      <span>Até 12x<br>no cartão</span>
+      <span>Até 18x<br>no cartão</span>
     </li>
     <li>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -832,7 +642,7 @@ a{ touch-action: manipulation; }
         </svg>
       </span>
       <span class="link-body">
-        <span class="ig-line">Acompanhe as novidades<br>no nosso <span class="ig-handle" id="ig-handle">@moraeseletronicos</span></span>
+        <span class="ig-line">Novidades no nosso <span class="ig-handle" id="ig-handle">@moraeseletronicos</span></span>
       </span>
       <span class="link-end" aria-hidden="true">
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
@@ -841,35 +651,31 @@ a{ touch-action: manipulation; }
 
   </nav>
 
-  <hr class="divider">
-
   <!-- ===== marcas ===== -->
-  <section aria-label="Marcas que trabalhamos" style="display:flex; flex-direction:column; gap:11px;">
-    <ul class="marcas">
-      <li>
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
-          <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
-        </svg>
-        <span>iPhone</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="2.6" y="2.6" width="18.8" height="18.8" rx="6" fill="none" stroke="currentColor" stroke-width="1.7"/>
-          <text x="12" y="15.9" text-anchor="middle" fill="currentColor"
-                font-family="Archivo, system-ui, sans-serif" font-weight="800" font-size="8.6" letter-spacing=".4">MI</text>
-        </svg>
-        <span>Xiaomi</span>
-      </li>
-    </ul>
-    <p class="marcas-nota">Linha completa · lacrados e com garantia</p>
-  </section>
+  <ul class="marcas" aria-label="Marcas que trabalhamos">
+    <li>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.75-.77-2.87-.75-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71s1.71.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.52Z"/>
+        <path d="M14.88 5.99c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.23Z"/>
+      </svg>
+      iPhone
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <text x="12" y="15.8" text-anchor="middle" fill="currentColor"
+              font-family="Archivo, system-ui, sans-serif" font-weight="800" font-size="8.4" letter-spacing=".4">MI</text>
+      </svg>
+      Xiaomi
+    </li>
+    <li class="selo">Lacrados<br>com garantia</li>
+  </ul>
 
   <!-- ===== rodapé ===== -->
   <footer class="foot">
     <strong>Moraes Celulares &amp; Eletrônicos</strong>
+    <span id="ft-endereco">Rua Exemplo, 123 &middot; Centro &middot; Londrina/PR</span>
     <span id="ft-horario">Seg a Sex 9h–18h &middot; Sáb 9h–13h</span>
-    <span id="ft-endereco">Rua Exemplo, 123 &middot; Centro</span>
     <span>&copy; <span id="ft-ano">2026</span> — Todos os direitos reservados</span>
   </footer>
 
@@ -881,13 +687,13 @@ a{ touch-action: manipulation; }
    Telefones no formato internacional, só dígitos: 55 + DDD + número.
    ============================================================ */
 const MORAES = {
-  whatsappIphone:  "5500000000000",
-  whatsappAndroid: "5500000000000",
+  whatsappIphone:  "5543000000000",
+  whatsappAndroid: "5543000000000",
   msgIphone:       "Olá! Vim pelo link da bio e quero saber sobre iPhone.",
   msgAndroid:      "Olá! Vim pelo link da bio e quero saber sobre Android.",
   instagram:       "moraeseletronicos",
-  mapsUrl:         "https://www.google.com/maps/search/?api=1&query=Moraes+Celulares+e+Eletronicos",
-  endereco:        "Rua Exemplo, 123 · Centro",
+  mapsUrl:         "https://www.google.com/maps/search/?api=1&query=Moraes+Celulares+e+Eletronicos+Londrina",
+  endereco:        "Rua Exemplo, 123 · Centro · Londrina/PR",
   horario:         "Seg a Sex 9h–18h · Sáb 9h–13h"
 };
 

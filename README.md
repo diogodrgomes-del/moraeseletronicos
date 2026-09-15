@@ -40,24 +40,32 @@ python3 -m http.server 8000
 Por ser um arquivo estático, sobe direto em Netlify, Vercel, GitHub Pages ou
 qualquer hospedagem. Não há passo de build.
 
-## O iPhone da abertura
+## Os aparelhos da abertura
 
-O aparelho no topo é feito só com HTML e CSS — nenhuma imagem é carregada.
-Mora no bloco `3. O iPhone` do `<style>`:
+Os três iPhones são desenhados em CSS — nenhuma imagem é carregada, então a
+página abre sem esperar download. Ficam no bloco `3. Os aparelhos` do `<style>`:
 
-- `@keyframes flutuar` — a flutuação e a inclinação, ciclo de 7s
-- `@keyframes trocaWall` — troca dos três papéis de parede, ciclo de 14,4s
-- `@keyframes correBrilho` — o reflexo que corre pelo vidro
-- `.wall--dunas` / `.wall--roxo` / `.wall--laranja` — as três cores
+- `.dev--azul`, `.dev--laranja`, `.dev--titanio` — as três cores
+- `.cam` — o módulo da câmera; os `<i>` são as lentes e os `<b>` o flash e o sensor
+- `.maca` — o símbolo da Apple
 
-Para trocar um papel de parede, basta mudar o `background` da classe. Quem tiver
-`prefers-reduced-motion` ligado no aparelho vê o iPhone parado.
+Para trocar uma cor, basta mudar o `background` da classe. Para usar foto real
+de produto, trocar a `<div class="trio">` por `<img>` e manter a mesma altura.
+
+## Enxugado para a primeira tela
+
+A ordem foi pensada para o cliente ver tudo que importa sem rolar: marca,
+"Referência em iPhone em Londrina", os aparelhos, as quatro garantias e os dois
+botões de WhatsApp cabem em ~740px. Endereço, Instagram, marcas e rodapé vêm
+logo abaixo.
+
+Se for mexer no espaçamento, o controle central é o `gap` do `.wrap`.
 
 ## Pendências
 
 - [ ] Trocar os WhatsApps de exemplo pelos números reais
 - [ ] Confirmar usuário do Instagram e link do Maps
 - [ ] Substituir o monograma SVG pelo arquivo oficial da marca
-- [ ] Avaliar trocar o iPhone em CSS por foto real de produto
-- [ ] Endereço e horário reais no rodapé
+- [ ] Avaliar trocar os iPhones em CSS por foto real de produto
+- [ ] Endereço e horário reais da loja em Londrina
 - [ ] Favicon e imagem de compartilhamento (Open Graph)
