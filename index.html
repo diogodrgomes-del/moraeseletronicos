@@ -105,9 +105,16 @@ body{
   aspect-ratio: 1;
   display: block;
   border-radius: 24px;
-  object-fit: contain;
+  overflow: hidden;
   background: var(--preto);
   box-shadow: 0 22px 54px -26px rgba(232,180,58,.5);
+}
+.marca > svg,
+.marca > img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 .impacto{
@@ -329,10 +336,23 @@ body{
 <main class="bio">
 
   <header class="topo">
-    <img class="marca surge" id="marca" style="--atraso:.03s"
-         src="assets/logo.svg"
-         alt="Moraes Celulares e Eletrônicos"
-         width="188" height="188">
+    <div class="marca surge" id="marca" style="--atraso:.03s">
+      <svg viewBox="0 0 418 418" role="img" aria-label="Moraes Celulares e Eletrônicos">
+        <!-- Monograma: M dourado por fora, M cinza por dentro. O traço preto
+             sob o cinza abre o vinco onde os dois se cruzam. -->
+        <g fill="none" stroke-linecap="butt" stroke-linejoin="miter">
+          <path d="M70 292 L70 102 L209 244 L348 102 L348 292" stroke="#E9B429" stroke-width="46"/>
+          <path d="M131 292 L131 94 L209 212 L287 94 L287 292" stroke="#000000" stroke-width="61"/>
+          <path d="M131 292 L131 94 L209 212 L287 94 L287 292" stroke="#757575" stroke-width="46"/>
+        </g>
+        <g fill="#FFFFFF" text-anchor="middle" font-family="Sora, Manrope, Arial, sans-serif">
+          <text x="213" y="287" font-size="47" font-weight="700"
+                textLength="224" lengthAdjust="spacing">MORAES</text>
+          <text x="209" y="326" font-size="20" font-weight="600"
+                textLength="360" lengthAdjust="spacing">CELULARES &amp; ELETRÔNICOS</text>
+        </g>
+      </svg>
+    </div>
 
     <h1 class="impacto surge" style="--atraso:.10s">
       Referência em <em>iPhone</em> em Londrina
@@ -463,18 +483,23 @@ const MORAES = {
   txt("tx-maps", MORAES.cidade);
 })();
 
-/* A página já nasce com o assets/logo.svg na tela — nunca aparece um
-   quadrado quebrado. Se o arquivo oficial existir, ele entra no lugar
-   assim que termina de carregar. Ordem: png, jpg, webp. */
+/* O monograma vai inline no HTML, então a página já abre com a marca na
+   tela e com as fontes certas. Se o arquivo oficial existir, ele entra no
+   lugar do vetor assim que carregar. Ordem: png, jpg, webp, svg. */
 (function logo(){
-  const img = document.getElementById("marca");
+  const caixa = document.getElementById("marca");
   const oficiais = ["assets/logo.png", "assets/logo.jpg", "assets/logo.webp"];
   let i = 0;
 
   function tentar(){
     if (i >= oficiais.length) return;
     const teste = new Image();
-    teste.onload  = function(){ img.src = teste.src; };
+    teste.onload = function(){
+      const img = document.createElement("img");
+      img.src = teste.src;
+      img.alt = "Moraes Celulares e Eletrônicos";
+      caixa.replaceChildren(img);
+    };
     teste.onerror = function(){ i++; tentar(); };
     teste.src = oficiais[i];
   }

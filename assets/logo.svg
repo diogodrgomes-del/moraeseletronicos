@@ -1,24 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" role="img" aria-labelledby="t">
-  <title id="t">Moraes Celulares &amp; Eletrônicos</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 418 418" width="418" height="418" role="img" aria-labelledby="tt">
+  <title id="tt">Moraes Celulares &amp; Eletrônicos</title>
 
-  <rect width="420" height="420" fill="#000000"/>
+  <rect width="418" height="418" fill="#0C0C0C"/>
 
-  <!-- Monograma MM. Dois M oblíquos entrelaçados: o da esquerda em ouro,
-       o da direita em branco, separados por um vinco preto onde se cruzam. -->
-  <g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="27">
-    <path d="M44 268 L44 112 L132 222 L220 112 L220 268" stroke="#E8B43A"/>
-    <path d="M196 268 L196 112 L284 222 L372 112 L372 268" stroke="#000000" stroke-width="43"/>
-    <path d="M196 268 L196 112 L284 222 L372 112 L372 268" stroke="#F5F3EF"/>
+  <!-- Monograma: M dourado por fora, M cinza por dentro.
+       O traço preto sob o cinza abre o vinco onde os dois se cruzam. -->
+  <g fill="none" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M70 292 L70 102 L209 244 L348 102 L348 292"  stroke="#E9B429" stroke-width="46"/>
+    <path d="M131 292 L131 94 L209 212 L287 94 L287 292"  stroke="#0C0C0C" stroke-width="61"/>
+    <path d="M131 292 L131 94 L209 212 L287 94 L287 292"  stroke="#757575" stroke-width="46"/>
   </g>
 
-  <!-- Assinatura -->
-  <text x="210" y="332" text-anchor="middle"
-        font-family="'Sora','Manrope','Helvetica Neue',Arial,sans-serif"
-        font-size="52" font-weight="700" letter-spacing="6" fill="#F5F3EF">MORAES</text>
-
-  <line x1="86" y1="352" x2="334" y2="352" stroke="#E8B43A" stroke-width="2"/>
-
-  <text x="210" y="379" text-anchor="middle"
-        font-family="'Manrope','Helvetica Neue',Arial,sans-serif"
-        font-size="20" font-weight="600" letter-spacing="4.6" fill="#F5F3EF">CELULARES &amp; ELETRÔNICOS</text>
+  <!-- Assinatura, sobreposta à base do monograma -->
+  <g fill="#FFFFFF" text-anchor="middle"
+     font-family="Sora, Manrope, 'Helvetica Neue', Arial, sans-serif">
+    <text x="213" y="287" font-size="47" font-weight="700"
+          textLength="224" lengthAdjust="spacing">MORAES</text>
+    <text x="209" y="326" font-size="20" font-weight="600"
+          textLength="360" lengthAdjust="spacing">CELULARES &amp; ELETRÔNICOS</text>
+  </g>
 </svg>
