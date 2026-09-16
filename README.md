@@ -87,5 +87,5 @@ Mexer no texto dos selos exige refazer essa conta.
 
 ## Pendências
 
-- [ ] Confirmar o usuário do Instagram
-- [ ] Trocar o `mapsUrl` pelo link exato da loja (hoje é uma busca por nome)
+- [ ] Confirmar o usuário do Instagram da loja (`moraeseletronicos`)
+- [ ] Confirmar o usuário do Instagram da agência (`agenciamarktiva`)
