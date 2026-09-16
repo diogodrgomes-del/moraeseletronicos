@@ -6,9 +6,10 @@ imagem.
 
 ```
 index.html       → a página inteira (estilo e script dentro)
-assets/logo.png  → o logo oficial (você coloca aqui)
-assets/logo.svg  → reserva vetorial, usada enquanto o oficial não sobe
-assets/LEIA-ME.md → como exportar e trocar o logo
+assets/logo.png       → o logo, recortado e otimizado (64 KB)
+assets/logo-original.png → o original enviado, intocado
+assets/icone.png      → ícone da aba e do atalho de celular
+assets/LEIA-ME.md     → o que é cada arquivo e como regerar
 ```
 
 ## Os quatro atalhos
@@ -44,7 +45,7 @@ não é preciso editar o HTML em dois lugares.
 
 - **Sora** nos títulos e rótulos, **Manrope** no resto (Google Fonts, com
   fallback de sistema declarado).
-- Ouro `#E8B43A`, com `#FFE3A0` no brilho e `#8A6516` na sombra.
+- Ouro `#F6C210` — o valor exato do logo —, com `#FFE27A` no brilho e `#9A7A06` na sombra.
 - Pretos levemente quentes (`#0B0A09`, `#17150F`) para não brigar com o ouro.
 - O ouro aparece em poucos lugares de propósito: a palavra *iPhone*, os
   losangos entre os selos, os dois botões de venda e a régua do rodapé.
@@ -66,7 +67,6 @@ Arquivo estático: sobe direto em Netlify, Vercel ou GitHub Pages, sem build.
 
 ## Pendências
 
-- [ ] Colocar o logo oficial em `assets/logo.png`
 - [ ] Trocar os dois WhatsApp de exemplo (`5543000000000`) pelos números reais
 - [ ] Confirmar o usuário do Instagram
 - [ ] Trocar o `mapsUrl` pelo link exato da loja (hoje é uma busca por nome)
