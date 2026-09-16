@@ -43,12 +43,14 @@ não é preciso editar o HTML em dois lugares.
 
 ## Tipografia e cor
 
-- **Sora** nos títulos e rótulos, **Manrope** no resto (Google Fonts, com
-  fallback de sistema declarado).
+- **Sora** nos títulos e rótulos, **Manrope** no resto e **Playfair Display**
+  itálico só em "iPhone em Londrina" (Google Fonts, com fallback de sistema
+  declarado).
 - Ouro `#F6C210` — o valor exato do logo —, com `#FFE27A` no brilho e `#9A7A06` na sombra.
 - Pretos levemente quentes (`#0B0A09`, `#17150F`) para não brigar com o ouro.
-- O ouro aparece em poucos lugares de propósito: a palavra *iPhone*, os
-  losangos entre os selos, os dois botões de venda e a régua do rodapé.
+- O ouro aparece em poucos lugares de propósito: "iPhone em Londrina", os
+  quatro ícones, os losangos entre os selos, os dois botões de venda e a
+  régua do rodapé.
 
 ## Animação
 
@@ -56,8 +58,16 @@ Entrada em cascata: cada bloco sobe 14 px e aparece, com ~70 ms entre um e
 outro. Termina em cerca de 1,1 s — a página assenta sozinha, sem rolagem e
 sem nada preso em `opacity: 0`.
 
-O brilho dourado atrás do logo respira num ciclo de 9 s, e os botões de
-venda têm um clarão que atravessa no toque.
+Depois disso a página não fica parada:
+
+| O quê | Como |
+|---|---|
+| "iPhone em Londrina" | degradê de sete paradas, duas vezes e meia mais largo que o texto, deslizando em 6 s — é o que faz o brilho correr pelas letras |
+| Logo | flutua 6 px num ciclo de 6,5 s, começando depois da entrada |
+| Pílulas CLIQUE AQUI | um clarão atravessa cada uma a cada 5 s, defasadas em 2,5 s |
+| Losangos dos selos | cintilam em 3,6 s, o segundo defasado em 1,8 s |
+| Setas dos dois últimos botões | acenam 4 px a cada 4,2 s, defasadas |
+| Brilho atrás do logo | respira num ciclo de 9 s |
 
 Tudo isso desliga em `prefers-reduced-motion: reduce`.
 

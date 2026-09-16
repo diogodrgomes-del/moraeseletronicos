@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="assets/icone.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@1,700&family=Sora:wght@600;700&display=swap">
 <style>
 /* ============================================================
    MORAES CELULARES & ELETRÔNICOS — link na bio
@@ -40,6 +40,8 @@
 
   --fonte-titulo: "Sora", "Helvetica Neue", Arial, sans-serif;
   --fonte-texto:  "Manrope", "Helvetica Neue", Arial, sans-serif;
+  /* serifa de alto contraste: dá ao dourado um brilho que a sans não dá */
+  --fonte-brilho: "Playfair Display", "Times New Roman", Georgia, serif;
 }
 
 *{ box-sizing: border-box; }
@@ -101,12 +103,20 @@ body{
   text-align: center;
 }
 
+.marca-caixa{ display: block; }
+
 .marca{
   width: clamp(126px, 37vw, 160px);
   height: auto;
   display: block;
   /* o PNG é transparente, então a sombra acompanha o desenho, não uma caixa */
   filter: drop-shadow(0 16px 34px rgba(246,194,16,.22));
+  /* começa depois da entrada, senão as duas animações disputam o transform */
+  animation: flutua 6.5s ease-in-out 1.3s infinite;
+}
+@keyframes flutua{
+  0%, 100%{ transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
 }
 
 .impacto{
@@ -118,13 +128,37 @@ body{
   letter-spacing: -.022em;
   text-wrap: balance;
 }
-/* só "iPhone" recebe o ouro — o destaque mora num lugar só */
+/* ------------------------------------------------------------
+   "iPhone em Londrina": serifa italica sobre um dourado de verdade.
+   O degradê tem sete paradas — do ouro escuro ao quase branco e de
+   volta — e é duas vezes e meia mais largo que o texto. Deslizá-lo
+   é o que faz o brilho correr pelas letras.
+   ------------------------------------------------------------ */
 .impacto em{
-  font-style: normal;
-  background: linear-gradient(180deg, var(--ouro-claro) 0%, var(--ouro) 55%, var(--ouro-escuro) 130%);
+  font-family: var(--fonte-brilho);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: -.005em;
+  background: linear-gradient(100deg,
+              #7A5A10  0%,
+              #B98C1B 16%,
+              #F6C210 32%,
+              #FFF6D2 45%,
+              #FFE27A 52%,
+              #F6C210 66%,
+              #B98C1B 84%,
+              #7A5A10 100%);
+  background-size: 250% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 0 16px rgba(246,194,16,.28));
+  animation: reluz 6s linear infinite;
+}
+@keyframes reluz{
+  0%,   10% { background-position: 118% 50%; }
+  90%, 100% { background-position: -18% 50%; }
 }
 
 /* Os três selos: separados por losangos dourados, não por cartões. */
@@ -150,7 +184,12 @@ body{
   height: 4px;
   rotate: 45deg;
   background: var(--ouro);
-  opacity: .8;
+  animation: cintila 3.6s ease-in-out infinite;
+}
+.selos li:last-child::before{ animation-delay: 1.8s; }
+@keyframes cintila{
+  0%, 100%{ opacity: .38; transform: scale(.82); }
+  50%     { opacity: 1;   transform: scale(1.12); }
 }
 
 /* ---------------------------- botões ---------------------------- */
@@ -222,10 +261,7 @@ body{
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: rgba(245,243,239,.06);
-  color: var(--branco);
-}
-.destaque .icone{
+  /* os quatro ícones são dourados; só os dois de venda levam a pílula */
   background: rgba(246,194,16,.12);
   color: var(--ouro);
 }
@@ -265,6 +301,27 @@ body{
   white-space: nowrap;
   color: var(--preto);
   background: linear-gradient(160deg, var(--ouro-claro) 0%, var(--ouro) 58%, #C79A08 100%);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* o clarão não espera o toque: passa sozinho, para puxar o olho ao CTA */
+.pilula::after{
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -45%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.8), transparent);
+  animation: varre 5s ease-in-out infinite;
+  pointer-events: none;
+}
+/* as duas não brilham juntas */
+.links > a:nth-child(2) .pilula::after{ animation-delay: 2.5s; }
+@keyframes varre{
+  0%       { transform: translateX(0);    opacity: 0; }
+  6%       { opacity: 1; }
+  26%      { opacity: 1; }
+  34%, 100%{ transform: translateX(430%); opacity: 0; }
 }
 
 .seta{
@@ -272,10 +329,16 @@ body{
   width: 18px;
   height: 18px;
   color: var(--fumaca);
-  transition: transform .22s ease, color .22s ease;
+  transition: color .22s ease;
+  animation: acena 4.2s ease-in-out infinite;
+}
+.links > a:last-child .seta{ animation-delay: 2.1s; }
+@keyframes acena{
+  0%, 68%, 86%, 100%{ transform: translateX(0); }
+  77%               { transform: translateX(4px); }
 }
 @media (hover: hover){
-  .botao:hover .seta{ transform: translateX(3px); color: var(--ouro); }
+  .botao:hover .seta{ color: var(--ouro); }
 }
 
 /* ---------------------------- rodapé ---------------------------- */
@@ -305,7 +368,7 @@ body{
    Termina em ~1,1 s — a página assenta sozinha, sem rolagem.
    ------------------------------------------------------------ */
 @keyframes surge{
-  from{ opacity: 0; transform: translateY(14px); }
+  from{ opacity: 0; transform: translateY(15px) scale(.975); }
   to  { opacity: 1; transform: none; }
 }
 .surge{
@@ -314,10 +377,21 @@ body{
 }
 
 @media (prefers-reduced-motion: reduce){
-  .surge{ animation: none; }
-  .aura{ animation: none; }
-  .botao, .seta{ transition: none; }
+  .surge,
+  .aura,
+  .marca,
+  .impacto em,
+  .selos li + li::before,
+  .pilula::after,
+  .seta,
   .botao.destaque:hover::after{ animation: none; }
+
+  /* sem o degradê correndo, o texto precisa de uma cor pintada */
+  .impacto em{ background-position: 40% 50%; filter: none; }
+  .selos li + li::before{ opacity: .8; }
+  .pilula::after{ opacity: 0; }
+
+  .botao, .seta{ transition: none; }
 }
 </style>
 </head>
@@ -328,13 +402,15 @@ body{
 <main class="bio">
 
   <header class="topo">
-    <img class="marca surge" id="marca" style="--atraso:.03s"
+    <div class="marca-caixa surge" style="--atraso:.03s">
+    <img class="marca" id="marca"
          src="assets/logo.png"
          alt="Moraes Celulares e Eletrônicos"
          width="660" height="477">
+    </div>
 
     <h1 class="impacto surge" style="--atraso:.10s">
-      Referência em <em>iPhone</em> em Londrina
+      Referência em <em>iPhone em Londrina</em>
     </h1>
 
     <ul class="selos surge" style="--atraso:.17s">
