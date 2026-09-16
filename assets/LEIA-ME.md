@@ -1,32 +1,25 @@
-# A arte
+# O logo
 
-A página usa a arte inteira como imagem, sem redesenhar nada. Por cima dela
-ficam quatro áreas clicáveis invisíveis, alinhadas com os botões.
+A página procura o logo oficial nesta ordem e usa o primeiro que encontrar:
 
-## O arquivo
+1. `logo.png`  ← **coloque o oficial aqui**
+2. `logo.jpg`
+3. `logo.webp`
+4. `logo.svg`  ← reserva, já versionada no repositório
 
-Coloque a arte aqui com um destes nomes:
+Enquanto o oficial não estiver na pasta, a página mostra o `logo.svg` —
+uma reprodução do monograma feita em vetor. Ela segura o layout, mas o
+ideal é subir o arquivo original.
 
-- `arte.jpg`  (procurado primeiro)
-- `arte.png`
-- `arte.webp`
+## Como exportar
 
-Enquanto o arquivo não existir, a página mostra um aviso com o passo a passo,
-em vez de ficar preta.
+- **Quadrado** (1:1). O logo da Moraes já é quadrado, com fundo preto.
+- **PNG**, 512 × 512 px. Acima disso o celular não ganha nada e a página
+  demora mais para abrir.
+- Fundo **preto chapado**, igual ao da página — assim o quadrado some e só
+  o monograma aparece flutuando.
+- Se preferir fundo transparente, também funciona: a página é preta atrás.
 
-## Proporção
+## Trocar
 
-As áreas clicáveis foram medidas sobre uma arte de **941 × 1672** (proporção
-9:16). Se a sua arte tiver outra proporção, ajuste no `index.html`:
-
-1. O `aspect-ratio` da classe `.arte`
-2. As porcentagens das classes `.t-iphone`, `.t-android`, `.t-endereco` e
-   `.t-instagram`
-
-Cada área é definida por `left`, `top`, `width` e `height` em porcentagem da
-arte — por isso continuam alinhadas em qualquer tamanho de tela.
-
-## Peso
-
-Exporte em JPG com qualidade 80 e no máximo 1200px de largura. Acima disso o
-ganho visual no celular é nulo e a página só demora mais para abrir.
+Basta substituir o arquivo. Não há nada para ajustar no `index.html`.

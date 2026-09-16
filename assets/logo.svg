@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" role="img" aria-labelledby="t">
+  <title id="t">Moraes Celulares &amp; Eletrônicos</title>
+
+  <rect width="420" height="420" fill="#000000"/>
+
+  <!-- Monograma MM. Dois M oblíquos entrelaçados: o da esquerda em ouro,
+       o da direita em branco, separados por um vinco preto onde se cruzam. -->
+  <g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="27">
+    <path d="M44 268 L44 112 L132 222 L220 112 L220 268" stroke="#E8B43A"/>
+    <path d="M196 268 L196 112 L284 222 L372 112 L372 268" stroke="#000000" stroke-width="43"/>
+    <path d="M196 268 L196 112 L284 222 L372 112 L372 268" stroke="#F5F3EF"/>
+  </g>
+
+  <!-- Assinatura -->
+  <text x="210" y="332" text-anchor="middle"
+        font-family="'Sora','Manrope','Helvetica Neue',Arial,sans-serif"
+        font-size="52" font-weight="700" letter-spacing="6" fill="#F5F3EF">MORAES</text>
+
+  <line x1="86" y1="352" x2="334" y2="352" stroke="#E8B43A" stroke-width="2"/>
+
+  <text x="210" y="379" text-anchor="middle"
+        font-family="'Manrope','Helvetica Neue',Arial,sans-serif"
+        font-size="20" font-weight="600" letter-spacing="4.6" fill="#F5F3EF">CELULARES &amp; ELETRÔNICOS</text>
+</svg>

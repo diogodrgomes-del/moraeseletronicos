@@ -1,53 +1,64 @@
 # Moraes Celulares & Eletrônicos — link na bio
 
-A arte da marca **é** a página. Nada é redesenhado: a imagem aparece inteira na
-tela e, por cima dela, ficam quatro áreas clicáveis invisíveis alinhadas com os
-botões que já existem no desenho.
+Página única para a bio do Instagram: logo, frase de impacto e quatro
+atalhos. Preto, branco e ouro. Sem build, sem dependência — um HTML e uma
+imagem.
 
 ```
-index.html         → a página
-assets/arte.jpg    → a arte (você coloca aqui)
-assets/LEIA-ME.md  → nomes e proporção aceitos
+index.html       → a página inteira (estilo e script dentro)
+assets/logo.png  → o logo oficial (você coloca aqui)
+assets/logo.svg  → reserva vetorial, usada enquanto o oficial não sobe
+assets/LEIA-ME.md → como exportar e trocar o logo
 ```
 
-## O que falta para funcionar
+## Os quatro atalhos
 
-Só uma coisa: colocar a arte em `assets/arte.jpg`. Enquanto o arquivo não
-existir, a página mostra um aviso com o passo a passo em vez de ficar preta.
+| # | Botão | Vai para |
+|---|---|---|
+| 1 | Procurando um iPhone? — CLIQUE AQUI | WhatsApp, com mensagem já digitada |
+| 2 | Prefere Android? — CLIQUE AQUI | WhatsApp, com mensagem já digitada |
+| 3 | Veja nosso Instagram | `instagram.com/<usuário>` |
+| 4 | Venha nos visitar | Google Maps |
 
-## Como editar os contatos
+Os dois primeiros são os de venda, então carregam o ouro. Os outros dois
+ficam em preto e branco para não disputar atenção.
 
-Tudo no bloco `const MORAES` no fim do `index.html`:
+## O que editar
+
+Tudo que muda de verdade está no bloco `const MORAES`, no fim do
+`index.html`:
 
 | Campo | O que é |
 |---|---|
 | `whatsappIphone` | WhatsApp da venda de iPhone — só dígitos: `55` + DDD + número |
 | `whatsappAndroid` | WhatsApp da venda de Android — mesmo formato |
-| `msgIphone` / `msgAndroid` | Mensagem que já vem digitada para o cliente |
+| `msgIphone` / `msgAndroid` | Mensagem que já vem escrita para o cliente |
 | `instagram` | Usuário do Instagram, sem o `@` |
+| `cidade` | Texto de apoio do botão da loja |
 | `mapsUrl` | Link do Google Maps da loja |
 
-## Como as áreas clicáveis funcionam
+O `@usuário` e a cidade que aparecem nos botões saem desse mesmo bloco —
+não é preciso editar o HTML em dois lugares.
 
-Cada botão é um `<a>` posicionado em **porcentagem** da arte:
+## Tipografia e cor
 
-```css
-.t-iphone { left: 17.6%; top: 39.7%; width: 65.3%; height: 9.6%; }
-```
+- **Sora** nos títulos e rótulos, **Manrope** no resto (Google Fonts, com
+  fallback de sistema declarado).
+- Ouro `#E8B43A`, com `#FFE3A0` no brilho e `#8A6516` na sombra.
+- Pretos levemente quentes (`#0B0A09`, `#17150F`) para não brigar com o ouro.
+- O ouro aparece em poucos lugares de propósito: a palavra *iPhone*, os
+  losangos entre os selos, os dois botões de venda e a régua do rodapé.
 
-Como tudo é percentual, a arte pode encolher ou crescer que as áreas acompanham
-— ficam alinhadas em qualquer tela. As medidas valem para uma arte **941 × 1672**
-(9:16). Trocando a arte por outra de proporção diferente, é preciso ajustar o
-`aspect-ratio` da classe `.arte` e essas porcentagens.
+## Animação
 
-Em repouso as áreas são invisíveis, para não alterar a arte. Elas só acendem de
-leve no toque, e ganham contorno dourado no foco por teclado.
+Entrada em cascata: cada bloco sobe 14 px e aparece, com ~70 ms entre um e
+outro. Termina em cerca de 1,1 s — a página assenta sozinha, sem rolagem e
+sem nada preso em `opacity: 0`.
 
-## Acessibilidade e busca
+O brilho dourado atrás do logo respira num ciclo de 9 s, e os botões de
+venda têm um clarão que atravessa no toque.
 
-Como todo o conteúdo está dentro de uma imagem, cada área clicável tem
-`aria-label` e a imagem tem `alt` descritivo — senão leitor de tela e Google não
-enxergariam nada da página.
+Tudo isso desliga em `prefers-reduced-motion: reduce`.
 
 ## Publicar
 
@@ -55,7 +66,7 @@ Arquivo estático: sobe direto em Netlify, Vercel ou GitHub Pages, sem build.
 
 ## Pendências
 
-- [ ] Colocar a arte em `assets/arte.jpg`
-- [ ] Trocar os dois WhatsApp de exemplo pelos números reais
-- [ ] Confirmar usuário do Instagram e link do Maps
-- [ ] Conferir se a arte final tem mesmo 941 × 1672; se não, ajustar as %
+- [ ] Colocar o logo oficial em `assets/logo.png`
+- [ ] Trocar os dois WhatsApp de exemplo (`5543000000000`) pelos números reais
+- [ ] Confirmar o usuário do Instagram
+- [ ] Trocar o `mapsUrl` pelo link exato da loja (hoje é uma busca por nome)
