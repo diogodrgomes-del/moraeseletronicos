@@ -34,7 +34,8 @@ Tudo que muda de verdade está no bloco `const MORAES`, no fim do
 | `whatsappIphone` | WhatsApp da venda de iPhone — só dígitos: `55` + DDD + número |
 | `whatsappAndroid` | WhatsApp da venda de Android — mesmo formato |
 | `msgIphone` / `msgAndroid` | Mensagem que já vem escrita para o cliente |
-| `instagram` | Usuário do Instagram, sem o `@` |
+| `instagram` | Usuário do Instagram da loja, sem o `@` |
+| `instagramAgencia` | Usuário do Instagram da agência, usado na assinatura do rodapé |
 | `cidade` | Texto de apoio do botão da loja |
 | `mapsUrl` | Link do Google Maps da loja |
 
@@ -75,8 +76,16 @@ Tudo isso desliga em `prefers-reduced-motion: reduce`.
 
 Arquivo estático: sobe direto em Netlify, Vercel ou GitHub Pages, sem build.
 
+## Os três selos em uma linha
+
+`aparelhos originais · até 18x no cartão · novos e seminovos` não quebra em
+nenhuma tela: a linha é `nowrap` e o corpo da fonte acompanha a largura do
+aparelho, em `clamp(6.2px, 2.05vw, 11px)`. Medido de 320 a 440 px — em
+todas sobra pelo menos 7% de folga.
+
+Mexer no texto dos selos exige refazer essa conta.
+
 ## Pendências
 
-- [ ] Trocar os dois WhatsApp de exemplo (`5543000000000`) pelos números reais
 - [ ] Confirmar o usuário do Instagram
 - [ ] Trocar o `mapsUrl` pelo link exato da loja (hoje é uma busca por nome)

@@ -167,18 +167,23 @@ body{
   margin: 0;
   padding: 0;
   list-style: none;
+  /* os três em uma linha só: nada quebra, e o corpo acompanha a largura
+     da tela para caber até no celular mais estreito */
+  --sep: clamp(4px, 1.5vw, 10px);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: 7px 10px;
-  font-size: 11px;
+  gap: var(--sep);
+  font-size: clamp(6.2px, 2.05vw, 11px);
   font-weight: 700;
-  letter-spacing: .085em;
+  letter-spacing: .045em;
   text-transform: uppercase;
+  white-space: nowrap;
+  max-width: 100%;
   color: var(--fumaca);
 }
-.selos li{ display: flex; align-items: center; gap: 10px; }
+.selos li{ display: flex; align-items: center; gap: var(--sep); }
 .selos li + li::before{
   content: "";
   width: 4px;
@@ -364,6 +369,25 @@ body{
   color: #6E685E;
 }
 
+/* assinatura da agência: dourada e menor que a linha de cima */
+.assina{
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ouro);
+  opacity: .72;
+  transition: opacity .22s ease;
+}
+@media (hover: hover){ .assina:hover{ opacity: 1; } }
+.assina:focus-visible{
+  outline: 2px solid var(--ouro);
+  outline-offset: 3px;
+  border-radius: 4px;
+  opacity: 1;
+}
+
 /* ------------------------------------------------------------
    Entrada: tudo sobe um pouco e aparece, em cascata.
    Termina em ~1,1 s — a página assenta sozinha, sem rolagem.
@@ -508,6 +532,9 @@ body{
   <footer class="rodape surge" style="--atraso:.52s">
     <span class="regua" aria-hidden="true"></span>
     <p>Moraes Celulares &amp; Eletrônicos · Londrina/PR</p>
+    <a class="assina" id="lk-agencia" href="#" target="_blank" rel="noopener">
+      Site feito por Agência Marktiva
+    </a>
   </footer>
 
 </main>
@@ -518,11 +545,12 @@ body{
    Telefone em formato internacional, só dígitos: 55 + DDD + número.
    ============================================================ */
 const MORAES = {
-  whatsappIphone:  "5543000000000",
-  whatsappAndroid: "5543000000000",
-  msgIphone:       "Olá! Vim pelo link da bio e quero saber sobre iPhone.",
-  msgAndroid:      "Olá! Vim pelo link da bio e quero saber sobre Android.",
+  whatsappIphone:  "5543996774144",
+  whatsappAndroid: "5543996774144",
+  msgIphone:       "Oii, Vim pelo instagram! Estou procurando um iPhone!",
+  msgAndroid:      "Oii, Vim pelo instagram! Estou procurando um celular android!",
   instagram:       "moraeseletronicos",
+  instagramAgencia:"agenciamarktiva",
   cidade:          "Londrina · PR",
   mapsUrl:         "https://www.google.com/maps/search/?api=1&query=Moraes+Celulares+e+Eletronicos+Londrina"
 };
@@ -537,6 +565,7 @@ const MORAES = {
   href("lk-android", wa(MORAES.whatsappAndroid, MORAES.msgAndroid));
   href("lk-ig",      "https://instagram.com/" + MORAES.instagram);
   href("lk-maps",    MORAES.mapsUrl);
+  href("lk-agencia", "https://instagram.com/" + MORAES.instagramAgencia);
 
   txt("tx-ig",   "@" + MORAES.instagram);
   txt("tx-maps", MORAES.cidade);
