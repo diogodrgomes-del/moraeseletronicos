@@ -12,6 +12,54 @@
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="assets/icone.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/icone.png">
+<!-- ============================================================
+     EDITE AQUI — é o único bloco que muda de verdade.
+     Telefone em formato internacional, só dígitos: 55 + DDD + número.
+     ============================================================ -->
+<script>
+const MORAES = {
+  whatsappIphone:  "5543996774144",
+  whatsappAndroid: "5543996774144",
+  msgIphone:       "Oii, Vim pelo instagram! Estou procurando um iPhone!",
+  msgAndroid:      "Oii, Vim pelo instagram! Estou procurando um celular android!",
+  instagram:       "moraeseletronicos",
+  instagramAgencia:"agenciamarktiva",
+  cidade:          "Londrina · PR",
+  mapsUrl:         "https://maps.app.goo.gl/pD8Q3BLUQ4iKvCDDA",
+
+  /* Pixel da Meta. Só os dígitos do ID, sem espaços.
+     Vazio = nada da Meta é carregado e nenhum dado sai da página. */
+  pixelFacebook:   ""
+};
+</script>
+
+<!-- ------------------------------------------------------------
+     Pixel da Meta. Fica no <head> porque é onde o Gerenciador de
+     Eventos espera encontrá-lo para dar a instalação como correta.
+
+     Sem ID configurado acima, o fbevents.js nem chega a ser baixado:
+     a página não faz nenhuma requisição para a Meta.
+     ------------------------------------------------------------ -->
+<script>
+(function pixelDaMeta(){
+  if (!MORAES.pixelFacebook) return;
+
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', MORAES.pixelFacebook);
+  fbq('track', 'PageView');
+})();
+
+/* Usado pelos botões lá embaixo. Sem pixel configurado, não faz nada. */
+function rastrear(evento, dados){
+  if (window.fbq) window.fbq('track', evento, dados || {});
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@1,700&family=Sora:wght@600;700&display=swap">
@@ -540,20 +588,8 @@ body{
 </main>
 
 <script>
-/* ============================================================
-   EDITE AQUI — é o único bloco que muda de verdade.
-   Telefone em formato internacional, só dígitos: 55 + DDD + número.
-   ============================================================ */
-const MORAES = {
-  whatsappIphone:  "5543996774144",
-  whatsappAndroid: "5543996774144",
-  msgIphone:       "Oii, Vim pelo instagram! Estou procurando um iPhone!",
-  msgAndroid:      "Oii, Vim pelo instagram! Estou procurando um celular android!",
-  instagram:       "moraeseletronicos",
-  instagramAgencia:"agenciamarktiva",
-  cidade:          "Londrina · PR",
-  mapsUrl:         "https://maps.app.goo.gl/pD8Q3BLUQ4iKvCDDA"
-};
+/* Configuração e pixel ficam no <head>. */
+
 
 /* ---------------- daqui para baixo não precisa mexer ---------------- */
 (function ligar(){
@@ -569,6 +605,32 @@ const MORAES = {
 
   txt("tx-ig",   "@" + MORAES.instagram);
   txt("tx-maps", MORAES.cidade);
+})();
+
+/* ------------------------------------------------------------
+   Eventos do pixel. O PageView sozinho não serve para otimizar
+   campanha — quem toca em "Procurando um iPhone?" é lead, e é isso
+   que a Meta precisa receber.
+
+   Contact e FindLocation são eventos padrão da Meta, então aparecem
+   prontos para uso como objetivo de campanha. Os nomes em
+   content_category separam iPhone de Android nos relatórios.
+
+   Os quatro botões abrem em aba nova, então a página não é
+   descarregada e o evento sempre chega antes de o dedo sair da tela.
+   ------------------------------------------------------------ */
+(function eventos(){
+  const mapa = [
+    ["lk-iphone",  "Contact",      { content_name: "WhatsApp iPhone",  content_category: "iPhone"  }],
+    ["lk-android", "Contact",      { content_name: "WhatsApp Android", content_category: "Android" }],
+    ["lk-ig",      "ViewContent",  { content_name: "Instagram da loja" }],
+    ["lk-maps",    "FindLocation", { content_name: "Como chegar" }]
+  ];
+
+  mapa.forEach(function(item){
+    const el = document.getElementById(item[0]);
+    if (el) el.addEventListener("click", function(){ rastrear(item[1], item[2]); });
+  });
 })();
 </script>
 

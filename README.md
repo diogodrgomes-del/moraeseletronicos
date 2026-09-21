@@ -26,8 +26,8 @@ ficam em preto e branco para não disputar atenção.
 
 ## O que editar
 
-Tudo que muda de verdade está no bloco `const MORAES`, no fim do
-`index.html`:
+Tudo que muda de verdade está no bloco `const MORAES`, **no `<head>` do
+`index.html`**:
 
 | Campo | O que é |
 |---|---|
@@ -38,9 +38,49 @@ Tudo que muda de verdade está no bloco `const MORAES`, no fim do
 | `instagramAgencia` | Usuário do Instagram da agência, usado na assinatura do rodapé |
 | `cidade` | Texto de apoio do botão da loja |
 | `mapsUrl` | Link do Google Maps da loja |
+| `pixelFacebook` | ID do pixel da Meta, só dígitos. Vazio desliga o rastreamento |
 
 O `@usuário` e a cidade que aparecem nos botões saem desse mesmo bloco —
 não é preciso editar o HTML em dois lugares.
+
+## Pixel da Meta
+
+O ID vai em `pixelFacebook`, no mesmo bloco dos contatos. O código do pixel
+fica no `<head>`, que é onde o Gerenciador de Eventos espera encontrá-lo
+para dar a instalação como correta.
+
+**Com o campo vazio, o `fbevents.js` nem é baixado** — a página não faz
+nenhuma requisição para a Meta e nenhum dado do visitante sai dela.
+
+### Eventos
+
+`PageView` sozinho não otimiza campanha. Quem toca num botão de WhatsApp é
+lead, e é isso que a Meta precisa receber:
+
+| Botão | Evento | Parâmetros |
+|---|---|---|
+| Abertura da página | `PageView` | — |
+| Procurando um iPhone? | `Contact` | `content_category: iPhone` |
+| Prefere Android? | `Contact` | `content_category: Android` |
+| Veja nosso Instagram | `ViewContent` | `content_name: Instagram da loja` |
+| Venha nos visitar | `FindLocation` | `content_name: Como chegar` |
+
+`Contact`, `ViewContent` e `FindLocation` são eventos **padrão** da Meta,
+então aparecem prontos como objetivo de campanha, sem precisar cadastrar
+conversão personalizada. O `content_category` separa iPhone de Android nos
+relatórios.
+
+Para otimizar por `Lead` em vez de `Contact`, é trocar a palavra nas duas
+linhas do bloco `eventos()`.
+
+O link da agência no rodapé não dispara evento — não é conversão da loja.
+
+### Por que não tem `<noscript>`
+
+O fallback em `<img>` que a Meta sugere serve para visitante com
+JavaScript desligado. Aqui os `href` dos quatro botões são montados por
+JavaScript, então sem ele a página não funciona de qualquer forma — o
+fallback contaria uma visita que nunca teria como converter.
 
 ## Tipografia e cor
 
