@@ -72,10 +72,6 @@ Depois disso a página não fica parada:
 
 Tudo isso desliga em `prefers-reduced-motion: reduce`.
 
-## Publicar
-
-Arquivo estático: sobe direto em Netlify, Vercel ou GitHub Pages, sem build.
-
 ## Os três selos em uma linha
 
 `aparelhos originais · até 18x no cartão · novos e seminovos` não quebra em
@@ -85,7 +81,22 @@ todas sobra pelo menos 7% de folga.
 
 Mexer no texto dos selos exige refazer essa conta.
 
-## Pendências
+## Publicar
 
-- [ ] Confirmar o usuário do Instagram da loja (`moraeseletronicos`)
-- [ ] Confirmar o usuário do Instagram da agência (`agenciamarktiva`)
+Arquivo estático, sem build. No GitHub Pages: Settings → Pages → Source
+`Deploy from a branch` → branch `claude/festive-newton-50kxif`, pasta
+`/ (root)`. Sai em `diogodrgomes-del.github.io/moraeseletronicos/`.
+
+A branch padrão do repositório é outra e tem outra versão da página, com
+os WhatsApp vazios — não aponte o Pages para ela.
+
+Todos os caminhos do `index.html` são relativos, então a página funciona
+tanto na raiz de um domínio quanto numa subpasta.
+
+## Conferido
+
+- [x] Logo oficial em `assets/logo.png`
+- [x] WhatsApp `5543996774144` nos dois botões, com as mensagens do cliente
+- [x] Instagram da loja: `moraeseletronicos`
+- [x] Instagram da agência: `agenciamarktiva`
+- [x] Link do Maps apontando para o ponto da loja
